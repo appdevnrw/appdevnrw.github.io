@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum – Hasilauf</title>
+    <link rel="icon" type="image/png" href="icon.png">
+    <style>
+        :root {
+            --blue: #007AFF;
+            --bg: #F5F5F7;
+            --surface: rgba(255, 255, 255, 0.72);
+            --text: #1D1D1F;
+            --text-muted: #6E6E73;
+            --border: rgba(0, 0, 0, 0.08);
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #000000;
+                --surface: rgba(28, 28, 30, 0.72);
+                --text: #F5F5F7;
+                --text-muted: #98989D;
+                --border: rgba(255, 255, 255, 0.1);
+            }
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+            background: var(--bg); color: var(--text);
+            line-height: 1.7; -webkit-font-smoothing: antialiased;
+        }
+        .page {
+            max-width: 680px; margin: 0 auto;
+            padding: 60px 24px 80px;
+        }
+        .back {
+            display: inline-flex; align-items: center; gap: 6px;
+            margin-bottom: 32px; text-decoration: none;
+            color: var(--blue); font-size: 15px; font-weight: 500;
+        }
+        .back svg { width: 16px; height: 16px; }
+        h1 { font-size: 32px; font-weight: 700; margin-bottom: 28px; letter-spacing: -0.02em; }
+        h2 { font-size: 18px; font-weight: 600; margin: 28px 0 10px; }
+        p { color: var(--text-muted); font-size: 15px; margin-bottom: 10px; }
+        p strong { color: var(--text); }
+        a { color: var(--blue); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <a href="index.html" class="back">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+            Zurück
+        </a>
+        <h1>Impressum</h1>
+        <p><strong>Angaben gemäß § 5 TMG</strong></p>
+        <p>
+            Felix<br>
+            Teststraße 1<br>
+            12345 Teststadt<br>
+            Deutschland
+        </p>
+        <h2>Kontakt</h2>
+        <p>E-Mail: <a href="mailto:support@hasilauf.nrw">support@hasilauf.nrw</a></p>
+        <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
+        <p>
+            Felix<br>
+            Teststraße 1<br>
+            12345 Teststadt
+        </p>
+        <h2>Haftungsausschluss</h2>
+        <p>Dies ist eine Platzhalter-Seite. Die rechtlichen Texte werden vor dem offiziellen Launch der App finalisiert.</p>
+    </div>
+</body>
+</html>
