@@ -201,7 +201,7 @@
         }
         .screenshot-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 28px;
         }
         .screenshot-grid img {
@@ -209,7 +209,8 @@
             box-shadow: var(--shadow-lg);
         }
 
-        @media (max-width: 520px) { .screenshot-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 900px) { .screenshot-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 520px) { .screenshot-grid { grid-template-columns: 1fr; gap: 20px; } }
 
         /* ── Privacy ── */
         .privacy-box {
@@ -376,7 +377,9 @@
             <p class="section-subtitle">Ein Vorgeschmack auf dein neues Lauf-Dashboard.</p>
             <div class="screenshot-grid">
                 <img src="screenshot-dashboard.png" alt="Hasilauf Dashboard mit Wochenringen und Statistiken">
-                <img src="screenshot-crew.png" alt="Hasilauf Crew-Ansicht mit Mitgliedern und Challenges">
+                <img src="screenshot-run-detail.png" alt="Detaillierte Auswertung eines Laufs mit Karte und HealthKit-Daten">
+                <img src="screenshot-crew.png" alt="Hasilauf Crew-Ansicht mit Mitgliedern und Bestenlisten">
+                <img src="screenshot-challenges.png" alt="Gamification, Achievements und Challenges in der App">
             </div>
         </div>
     </section>
