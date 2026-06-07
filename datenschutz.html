@@ -49,15 +49,38 @@
         a:hover { text-decoration: underline; }
         ul { color: var(--text-muted); font-size: 15px; margin: 8px 0 10px 20px; }
         li { margin-bottom: 4px; }
-        
-        /* NEUER FOOTER STYLE */
-        .site-footer {
-            max-width: 680px; margin: 40px auto 0;
-            padding: 30px 24px 60px;
+
+        /* ── Footer (Design von Startseite) ── */
+        footer {
             border-top: 1px solid var(--border);
-            text-align: center;
+            padding: 40px 0 28px; margin-top: 48px;
         }
-        .site-footer p { margin: 0; font-size: 14px; color: var(--text-muted); }
+        .footer-inner {
+            max-width: 680px; margin: 0 auto; padding: 0 24px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px; margin-bottom: 28px;
+        }
+        .footer-col h4 {
+            font-size: 12px; font-weight: 600;
+            color: var(--text-muted); text-transform: uppercase;
+            letter-spacing: 0.06em; margin-bottom: 10px;
+        }
+        .footer-col a {
+            display: block; color: var(--text); text-decoration: none;
+            font-size: 14px; margin-bottom: 7px;
+            transition: color 0.2s;
+        }
+        .footer-col a:hover { color: var(--blue); }
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 20px; text-align: center;
+            color: var(--text-muted); font-size: 13px;
+        }
+
+        @media (max-width: 520px) { .footer-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -93,15 +116,31 @@
         <p>Du kannst deine Daten jederzeit in der App exportieren (JSON) und dein Konto vollständig löschen.</p>
     </div>
 
-    <!-- NEUER FOOTER -->
-    <footer class="site-footer">
-        <p>
-            &copy; 2026 Hasilauf &nbsp;|&nbsp; 
-            <a href="index.html">Start</a> &nbsp;|&nbsp; 
-            <a href="impressum.html">Impressum</a> &nbsp;|&nbsp; 
-            <a href="datenschutz.html">Datenschutz</a> &nbsp;|&nbsp; 
-            <a href="agb.html">AGB</a>
-        </p>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Hasilauf</h4>
+                    <a href="index.html#features">Features</a>
+                    <a href="index.html#screenshots">Einblicke</a>
+                    <a href="https://apps.apple.com/app/id0000000000">App Store</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Rechtliches</h4>
+                    <a href="impressum.html">Impressum</a>
+                    <a href="datenschutz.html">Datenschutz</a>
+                    <a href="agb.html">AGB</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <a href="mailto:support@hasilauf.nrw">support@hasilauf.nrw</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Felix &middot; Hasilauf &middot; Alle Rechte vorbehalten
+            </div>
+        </div>
     </footer>
 </body>
 </html>
