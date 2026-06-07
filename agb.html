@@ -33,7 +33,7 @@
         }
         .page {
             max-width: 680px; margin: 0 auto;
-            padding: 60px 24px 80px;
+            padding: 60px 24px 0; /* Unten Padding entfernt, macht jetzt der Footer */
         }
         .back {
             display: inline-flex; align-items: center; gap: 6px;
@@ -47,6 +47,15 @@
         p strong { color: var(--text); }
         a { color: var(--blue); text-decoration: none; }
         a:hover { text-decoration: underline; }
+        
+        /* NEUER FOOTER STYLE */
+        .site-footer {
+            max-width: 680px; margin: 40px auto 0;
+            padding: 30px 24px 60px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        .site-footer p { margin: 0; font-size: 14px; color: var(--text-muted); }
     </style>
 </head>
 <body>
@@ -68,15 +77,16 @@
         <h2>3. Haftung</h2>
         <p>Die App dient ausschließlich zu Informations- und Motivationszwecken. Sie ersetzt keine medizinische Beratung.</p>
     </div>
-    <!-- Footer Start -->
-<footer style="margin-top: 60px; padding: 30px 20px; text-align: center; background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-top: 1px solid rgba(255, 255, 255, 0.5);">
-    <p style="margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif; font-size: 14px; color: #555;">
-        &copy; 2026 Hasilauf &nbsp;|&nbsp; 
-        <a href="index.html" style="color: #007AFF; text-decoration: none;">Start</a> &nbsp;|&nbsp; 
-        <a href="impressum.html" style="color: #007AFF; text-decoration: none;">Impressum</a> &nbsp;|&nbsp; 
-        <a href="datenschutz.html" style="color: #007AFF; text-decoration: none;">Datenschutz</a>
-    </p>
-</footer>
-<!-- Footer Ende -->
+    
+    <!-- NEUER FOOTER -->
+    <footer class="site-footer">
+        <p>
+            &copy; 2026 Hasilauf &nbsp;|&nbsp; 
+            <a href="index.html">Start</a> &nbsp;|&nbsp; 
+            <a href="impressum.html">Impressum</a> &nbsp;|&nbsp; 
+            <a href="datenschutz.html">Datenschutz</a> &nbsp;|&nbsp; 
+            <a href="agb.html">AGB</a>
+        </p>
+    </footer>
 </body>
 </html>
