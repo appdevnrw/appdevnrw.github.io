@@ -356,33 +356,60 @@
             margin: 0 auto;
             box-shadow: var(--shadow);
         }
-        .crew-members {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin-bottom: 24px;
-        }
-        .crew-member {
-            text-align: center;
-        }
-        .crew-avatar {
-            width: 72px; height: 72px;
-            border-radius: 50%;
-            margin: 0 auto 12px;
-            display: flex; align-items: center; justify-content: center;
-            color: white; font-weight: 700; font-size: 28px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-        }
-        .crew-avatar.felix { background: linear-gradient(135deg, #007AFF, #5856D6); }
-        .crew-avatar.paula { background: linear-gradient(135deg, #FF9500, #FF3B30); }
-        .crew-avatar.johann { background: linear-gradient(135deg, #34C759, #30B0C7); }
-        .crew-name { font-weight: 600; font-size: 16px; }
         .crew-card p {
             text-align: center;
             color: var(--text-muted);
             font-size: 16px;
             line-height: 1.6;
+            margin-top: 24px;
         }
+
+        /* ── So funktioniert's (Trends) ── */
+        .trends-mockup {
+            max-width: 480px;
+            margin: 0 auto;
+            background: var(--surface);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            padding: 24px;
+            box-shadow: var(--shadow-lg);
+        }
+        .trend-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .trend-item:last-child { border-bottom: none; }
+        .trend-user {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .trend-avatar {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FF9500, #FF3B30);
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-weight: 700; font-size: 18px;
+        }
+        .trend-avatar.blue { background: linear-gradient(135deg, #007AFF, #5856D6); }
+        .trend-avatar.green { background: linear-gradient(135deg, #34C759, #30B0C7); }
+        .trend-name { font-weight: 600; font-size: 16px; }
+
+        .trend-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 980px;
+            font-weight: 700;
+            font-size: 15px;
+        }
+        .trend-pill.up { background: rgba(52, 199, 89, 0.15); color: var(--green); }
+        .trend-pill.down { background: rgba(255, 59, 48, 0.15); color: var(--red); }
 
         /* ── Statement Section ── */
         .statement-section {
@@ -606,10 +633,10 @@
                         <img src="screenshot-dashboard.png" alt="Häschenlauf Dashboard mit Wochenringen und Statistiken">
                     </div>
                     <div class="carousel-slide">
-                        <img src="screenshot-run-detail.png" alt="Detaillierte Auswertung eines Laufs mit Karte und HealthKit-Daten">
+                        <img src="screenshot-run-detail.png" alt="Detaillierte Auswertung eines Laufs mit Übersicht und HealthKit-Daten">
                     </div>
                     <div class="carousel-slide">
-                        <img src="screenshot-crew.png" alt="Häschenlauf Crew-Ansicht mit Mitgliedern und Bestenlisten">
+                        <img src="screenshot-crew.png" alt="Häschenlauf Crew-Ansicht mit Mitgliedern und prozentualem Crew-Vergleich">
                     </div>
                     <div class="carousel-slide">
                         <img src="screenshot-challenges.png" alt="Gamification, Achievements und Challenges in der App">
@@ -640,21 +667,30 @@
             <p class="section-subtitle">Private Crews. Keine Öffentlichkeit. Keine Fremden. Nur die Menschen, mit denen du tatsächlich laufen möchtest.</p>
             
             <div class="crew-card">
-                <div class="crew-members">
-                    <div class="crew-member">
-                        <div class="crew-avatar felix">F</div>
-                        <div class="crew-name">Felix</div>
+                <div class="trends-mockup">
+                    <div class="trend-item">
+                        <div class="trend-user">
+                            <div class="trend-avatar">F</div>
+                            <span class="trend-name">Felix</span>
+                        </div>
+                        <div class="trend-pill up">+12% ↑</div>
                     </div>
-                    <div class="crew-member">
-                        <div class="crew-avatar paula">P</div>
-                        <div class="crew-name">Paula</div>
+                    <div class="trend-item">
+                        <div class="trend-user">
+                            <div class="trend-avatar green">P</div>
+                            <span class="trend-name">Paula</span>
+                        </div>
+                        <div class="trend-pill up">+4% ↑</div>
                     </div>
-                    <div class="crew-member">
-                        <div class="crew-avatar johann">J</div>
-                        <div class="crew-name">Johann</div>
+                    <div class="trend-item">
+                        <div class="trend-user">
+                            <div class="trend-avatar blue">J</div>
+                            <span class="trend-name">Johann</span>
+                        </div>
+                        <div class="trend-pill down">-2% ↓</div>
                     </div>
                 </div>
-                <p>Gründe private Gruppen für dich und deine Freunde. Startet Challenges, vergleicht eure Fortschritte und feiert gemeinsam eure Erfolge – ganz ohne Leistungsdruck.</p>
+                <p>In deiner Crew siehst du nicht, wie schnell die anderen laufen – sondern wie sehr sie sich im Vergleich zur letzten Woche verbessert haben.</p>
             </div>
         </div>
     </section>
@@ -664,7 +700,7 @@
         <div class="container">
             <div class="statement-section">
                 <h2>Kein Feed. Kein Scrollen.<br>Kein Leistungsdruck.</h2>
-                <p>Häschenlauf ist keine Social-Media-App. Wir wollen, dass du laufen gehst – nicht stundenlang scrollst.</p>
+                <p>Häschenlauf ist keine Social-Media-App. Wir wollen, dass du laufen gehst – nicht stundenlang scrollst. Und falls du mal nicht laufen kannst, haben wir sogar einen Pausenmodus.</p>
             </div>
         </div>
     </section>
@@ -730,7 +766,7 @@
                         <li>Keine Werbung</li>
                         <li>Keine Tracker oder Drittanbieter-SDKs</li>
                         <li>Daten-Export als JSON jederzeit möglich</li>
-                        <li>Face ID Schutz für die App</li>
+                        <li>Face-ID-Schutz für die App</li>
                     </ul>
                 </div>
                 <div class="trust-box">
@@ -742,8 +778,8 @@
                     <ul>
                         <li>Nahtlose Apple Health Integration</li>
                         <li>Modernes Liquid-Glass-Design</li>
-                        <li>Optimiert für die Apple Watch</li>
-                        <li>100% Barrierefreiheit</li>
+                        <li>Optimiert für Apple-Watch-Trainings</li>
+                        <li>Hoher Fokus auf Barrierefreiheit</li>
                     </ul>
                 </div>
             </div>
@@ -752,7 +788,7 @@
 
     <!-- Final CTA -->
     <div class="final-cta">
-        <h2>Starte deine private<br>Lauf-Challenge.</h2>
+        <h2>Tracke deine privaten<br>Lauf-Challenges.</h2>
         <p>Lade deine Freunde ein und vergleiche das, was wirklich zählt.</p>
         <a href="https://apps.apple.com/app/id6780870501" class="cta-button">
             <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
