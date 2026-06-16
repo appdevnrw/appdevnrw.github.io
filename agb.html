@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AGB – Hasilauf</title>
+    <title>AGB – Häschenlauf</title>
     <link rel="icon" type="image/png" href="icon.png">
     <style>
         :root {
@@ -59,13 +59,51 @@
         @media (max-width: 640px) { .nav-links { display: none; } .menu-toggle { display: block; } }
 
         /* Content */
-        .page { max-width: 680px; margin: 0 auto; padding: 120px 24px 60px; }
+        .page { max-width: 760px; margin: 0 auto; padding: 120px 24px 60px; }
         h1 { font-size: 32px; font-weight: 700; margin-bottom: 28px; letter-spacing: -0.02em; }
-        h2 { font-size: 18px; font-weight: 600; margin: 28px 0 10px; }
-        p { color: var(--text-muted); font-size: 15px; margin-bottom: 10px; }
+        h2 { font-size: 22px; font-weight: 600; margin: 36px 0 14px; color: var(--text); }
+        h3 { font-size: 17px; font-weight: 600; margin: 22px 0 10px; color: var(--text); }
+        p { color: var(--text-muted); font-size: 15px; margin-bottom: 12px; }
         p strong { color: var(--text); }
         a { color: var(--blue); text-decoration: none; }
         a:hover { text-decoration: underline; }
+        ul, ol { color: var(--text-muted); font-size: 15px; margin: 8px 0 14px 22px; }
+        li { margin-bottom: 6px; }
+        em { color: var(--text); font-style: italic; }
+        code {
+            background: rgba(0,0,0,0.05);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: var(--text);
+        }
+        @media (prefers-color-scheme: dark) {
+            code { background: rgba(255,255,255,0.1); }
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 14px 0 18px;
+            font-size: 14px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 12px 14px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        th {
+            background: rgba(0, 122, 255, 0.05);
+            font-weight: 600;
+            color: var(--text);
+            font-size: 13px;
+        }
+        td { color: var(--text-muted); }
+        tr:last-child td { border-bottom: none; }
 
         /* Footer */
         footer { border-top: 1px solid var(--border); padding: 40px 0 28px; margin-top: 48px; }
@@ -74,22 +112,26 @@
         .footer-col a { display: block; color: var(--text); text-decoration: none; font-size: 14px; margin-bottom: 7px; transition: color 0.2s; }
         .footer-col a:hover { color: var(--blue); }
         .footer-bottom { border-top: 1px solid var(--border); padding-top: 20px; text-align: center; color: var(--text-muted); font-size: 13px; }
-        @media (max-width: 520px) { .footer-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 520px) { 
+            .footer-grid { grid-template-columns: 1fr; } 
+            table { font-size: 13px; }
+            th, td { padding: 10px; }
+        }
     </style>
 </head>
 <body>
     <nav>
         <div class="nav-inner">
             <a href="index.html" class="nav-logo">
-                <img src="icon.png" alt="Hasilauf">
-                Hasilauf
+                <img src="icon.png" alt="Häschenlauf">
+                Häschenlauf
             </a>
             <ul class="nav-links">
                 <li><a href="index.html#crews">Crews</a></li>
                 <li><a href="index.html#features">Für dich</a></li>
                 <li><a href="index.html#privacy">Datenschutz</a></li>
                 <li><a href="index.html#story">Story</a></li>
-                <li><a href="https://apps.apple.com/app/id0000000000">Download</a></li>
+                <li><a href="https://apps.apple.com/app/id6780870501">Download</a></li>
             </ul>
             <button class="menu-toggle" onclick="document.getElementById('mobile-menu').style.display = document.getElementById('mobile-menu').style.display === 'block' ? 'none' : 'block'" aria-label="Menü">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -100,33 +142,307 @@
             <a href="index.html#features" onclick="document.getElementById('mobile-menu').style.display='none'">Für dich</a>
             <a href="index.html#privacy" onclick="document.getElementById('mobile-menu').style.display='none'">Datenschutz</a>
             <a href="index.html#story" onclick="document.getElementById('mobile-menu').style.display='none'">Story</a>
-            <a href="https://apps.apple.com/app/id0000000000">Download</a>
+            <a href="https://apps.apple.com/app/id6780870501">Download</a>
         </div>
     </nav>
 
     <div class="page">
-        <h1>Allgemeine Geschäftsbedingungen</h1>
-        <p><strong>Stand: Juni 2026 (Platzhalter)</strong></p>
-        <p>Diese AGB werden vor dem offiziellen Launch der App finalisiert.</p>
+        <h1>Allgemeine Geschäftsbedingungen (AGB)</h1>
+        <p><strong>Stand: 09.06.2026</strong><br><em>Nächste Überprüfung: Jährlich sowie anlassbezogen</em></p>
 
-        <h2>1. Geltungsbereich</h2>
-        <p>Diese AGB gelten für die Nutzung der iOS-App Hasilauf.</p>
+        <h2>§ 1 Geltungsbereich</h2>
+        <p>(1) Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für die Nutzung der mobilen iOS-Anwendung Häschenlauf (nachfolgend „App") zwischen dem Betreiber und den Nutzern der App.</p>
+        <p>(2) Die App ist eine kostenfreie Lauf- und Fitness-Tracking-Anwendung mit sozialen Crew-Funktionen und Gamification-Elementen.</p>
+        <p>(3) Abweichende Bedingungen des Nutzers gelten nicht, es sei denn, der Betreiber stimmt ihnen ausdrücklich schriftlich zu.</p>
+        <p>(4) Verbraucher im Sinne dieser AGB sind natürliche Personen, die die App überwiegend zu Zwecken nutzen, die weder ihrer gewerblichen noch ihrer selbstständigen beruflichen Tätigkeit zugerechnet werden können.</p>
 
-        <h2>2. Leistungsbeschreibung</h2>
-        <p>Hasilauf ist eine Lauf-Tracking-App für iOS, die Trainingsdaten aus Apple Health synchronisiert und in einer persönlichen Statistik aufbereitet. Der Fokus liegt auf privatem Crew-Vergleich durch relative Trends.</p>
+        <h2>§ 2 Vertragspartner, Impressum, Kontakt</h2>
+        <p><strong>Betreiber:</strong><br>
+        Felix Bischoff<br>
+        Liebigstraße 15<br>
+        45479 Mülheim an der Ruhr<br>
+        Deutschland<br>
+        E-Mail: <a href="mailto:haeschenlauf@icloud.com">haeschenlauf@icloud.com</a></p>
+        <p><em>Angaben gemäß § 5 DDG (ehemals § 5 TMG): Die vorstehenden Angaben entsprechen den gesetzlichen Informationspflichten.</em></p>
 
-        <h2>3. Haftung</h2>
-        <p>Die App dient ausschließlich zu Informations- und Motivationszwecken. Sie ersetzt keine medizinische Beratung.</p>
+        <h2>§ 3 Vertragsschluss</h2>
+        <p>(1) Der Nutzungsvertrag zwischen dem Betreiber und dem Nutzer kommt durch die Registrierung eines Benutzerkontos zustande.</p>
+        <p>(2) Mit dem Klick auf "Registrieren" und der vorgeschriebenen Bestätigung der AGB und der Datenschutzerklärung nimmt der Nutzer diese AGB verbindlich an.</p>
+        <p>(3) Der Nutzer hat keine Möglichkeit, den Vertragsschluss durch technische Schutzvorkehrungen zu verhindern (er kann die Registrierung jederzeit abbrechen).</p>
+        <p>(4) Der Vertragstext (diese AGB) wird unter <a href="https://haeschenlauf.de/agb">https://haeschenlauf.de/agb</a> bereitgehalten. Ein individueller Zugang zum Vertragstext durch den Nutzer ist nach Vertragsschluss nicht vorgesehen; die AGB können jedoch jederzeit von der vorgenannten URL abgerufen und gespeichert werden.</p>
+        <p>(5) Die Abwicklung des Vertrags erfolgt ausschließlich in deutscher Sprache.</p>
+        <p>(6) <strong>Hinweis zum Widerrufsrecht:</strong> Da die App vollständig kostenfrei zur Verfügung gestellt wird und kein entgeltlicher Verbrauchervertrag zustande kommt, besteht kein gesetzliches Widerrufsrecht nach §§ 312g, 355 BGB.</p>
+
+        <h2>§ 4 Registrierung und Konto</h2>
+        <p>(1) Die Nutzung der App setzt die Erstellung eines Benutzerkontos voraus. Die Registrierung erfolgt mit folgenden Pflichtangaben:</p>
+        <ul>
+            <li>E-Mail-Adresse</li>
+            <li>Passwort (mindestens 8 Zeichen)</li>
+            <li>Anzeigename (Spitzname, 1–50 Zeichen)</li>
+            <li>Geburtsdatum (zur Altersprüfung gemäß Art. 8 DSGVO)</li>
+        </ul>
+        <p>(2) Der Nutzer ist verpflichtet, wahrheitsgemäße und vollständige Angaben zu machen und diese bei Änderungen unverzüglich zu aktualisieren.</p>
+        <p>(3) Der Nutzer muss zum Zeitpunkt der Registrierung mindestens 18 Jahre alt sein. Die App ist nicht für Minderjährige bestimmt. Das Geburtsdatum wird lokal geprüft und nicht auf den Servern gespeichert – lediglich das boolesche Ergebnis (Alter ≥ 18) wird verarbeitet.</p>
+        <p>(4) Der Nutzer ist verpflichtet, sein Passwort geheim zu halten und vor unbefugtem Zugriff Dritter zu schützen. Der Betreiber haftet nicht für Schäden, die durch missbräuchliche Nutzung des Kontos infolge einer Verletzung dieser Pflicht entstehen.</p>
+        <p>(5) Es besteht kein Anspruch auf einen bestimmten Anzeigenamen. Der Betreiber behält sich vor, Anzeigenamen zu ändern oder zu löschen, die gegen gesetzliche Vorschriften oder die guten Sitten verstoßen.</p>
+        <p>(6) Das Benutzerkonto ist nicht übertragbar. Eine Kontoübertragung auf Dritte ist nicht möglich.</p>
+
+        <h2>§ 5 Leistungsbeschreibung – Funktionsumfang der App</h2>
+        <p>Die App bietet folgende Funktionen:</p>
+        <h3>5.1 HealthKit-Import (automatisch, lesend)</h3>
+        <p>Die App importiert automatisch Lauftrainings aus Apple HealthKit. Der Zugriff erfolgt ausschließlich lesend – es werden keine Daten von der App in HealthKit geschrieben.</p>
+        <p>Folgende Daten werden aus HealthKit gelesen (nur mit ausdrücklicher Einwilligung gemäß § 7):</p>
+        <ul>
+            <li>Training Workouts (Art, Dauer, Distanz, Datum)</li>
+            <li>Herzfrequenz (Durchschnitt, Minimum, Maximum, Ruhepuls)</li>
+            <li>Herzfrequenz-Zonen (Karvonen-Methode, 5 Zonen) und Herzfrequenz-Erholung</li>
+            <li>Aktive Energie (Kalorien)</li>
+            <li>Geh-/Laufdistanz und Schritte</li>
+            <li>Laufleistung (Kadenz, Schrittlänge, Bodenkontaktzeit, vertikale Oszillation, Leistung in Watt, Geschwindigkeit)</li>
+            <li>GPS-Startkoordinate (die vollständige GPS-Route wird temporär auf dem Gerät verarbeitet, aber nur die Startkoordinate wird dauerhaft gespeichert)</li>
+            <li>Höhenmeter (Auf- und Abstieg)</li>
+        </ul>
+
+        <h3>5.2 Manuelle Trainingserfassung</h3>
+        <p>Der Nutzer kann Trainings manuell erfassen (Laufen, Gehen, Intervall) mit Angabe von Distanz, Dauer, Pace, Kalorien, optionaler Herzfrequenz und Notizen.</p>
+
+        <h3>5.3 Trainingsanalyse</h3>
+        <p>Für jedes Training werden detaillierte Analysewerte berechnet:</p>
+        <ul>
+            <li>Durchschnitts- und Höchstgeschwindigkeit (Pace)</li>
+            <li>Herzfrequenz-Zonen (regenerativ, Grundlage 1+2, Entwicklung, Spitze)</li>
+            <li>Herzfrequenz-Erholung (End-HF, Erholung nach 1 Minute, Erholungskurve)</li>
+            <li>Segmentanalyse (pro Kilometer oder ereignisbasiert)</li>
+            <li>Rundenanalyse</li>
+            <li>Höhenprofil</li>
+            <li>Wetterdaten (Temperatur, Luftfeuchtigkeit, Windgeschwindigkeit, Wetterbedingung – abgerufen über Apple WeatherKit)</li>
+        </ul>
+
+        <h3>5.4 Dashboard</h3>
+        <p>Die App bietet eine Übersichtsseite mit:</p>
+        <ul>
+            <li>Wöchentlichen Statistiken (Kilometer, Trainingsanzahl, Minuten, Kalorien)</li>
+            <li>Herzfrequenz-Zonen-Minuten pro Woche</li>
+            <li>Letztem absolvierten Training</li>
+            <li>Datenqualitäts-Indikatoren (ConfidenceLevel)</li>
+        </ul>
+
+        <h3>5.5 Wochenziele</h3>
+        <p>Der Nutzer kann bis zu 3 wöchentliche Ziele aus 8 Metriken setzen:</p>
+        <ul>
+            <li>Kilometer, Trainingsanzahl, Trainingsminuten, Kalorien</li>
+            <li>Herzfrequenz-Zonen-Minuten, Kadenz über Schwellwert, Pace unter Schwellwert, Power-Volumen</li>
+        </ul>
+
+        <h3>5.6 Crew-System (Laufgruppen)</h3>
+        <p>(1) Der Nutzer kann einer Crew (Laufgruppe) beitreten oder eigene Crews erstellen.</p>
+        <p>(2) Mit Zustimmung zur Crew-Datenfreigabe (gesonderte Einwilligung gemäß § 7) werden folgende Daten für andere Crew-Mitglieder sichtbar:</p>
+        <ul>
+            <li>Anzeigename und Profil-Emoji</li>
+            <li>Zurückgelegte Kilometer der aktuellen Kalenderwoche</li>
+            <li>Anzahl der Trainings der aktuellen Kalenderwoche</li>
+            <li>Aktuelle Laufserie (in Wochen)</li>
+            <li>Prozentuale Veränderungen zum 4-Wochen-Durchschnitt</li>
+        </ul>
+        <p>(3) Nicht geteilt werden: Herzfrequenzdaten, Pace, Watt, Kadenz oder andere sensible Leistungsdaten anderer Mitglieder. Die App verwendet ein Privacy-by-Design-System, das die Anzeige absoluter Werte anderer Mitglieder technisch ausschließt.</p>
+        <p>(4) Crew-Administratoren können Mitglieder aus der Crew entfernen. Der Nutzer kann eine Crew jederzeit verlassen.</p>
+        <p>(5) Crews können öffentlich oder privat sein (Einladung erforderlich).</p>
+
+        <h3>5.7 Gruppenläufe</h3>
+        <p>Crew-Mitglieder können gemeinsame Läufe koordinieren. Die Teilnahme ist freiwillig.</p>
+
+        <h3>5.8 Gamification</h3>
+        <p>(1) Die App bietet ein Gamification-System zur Motivation:</p>
+        <ul>
+            <li>26 Erfolge (Achievements) in 3 Stufen (Bronze/Silber/Gold) in den Kategorien: Distanz-Meilensteine, Beständigkeit, persönliche Rekorde, Serien/Streaks, Crew-Erfolge</li>
+            <li>Persönliche Rekorde für die Distanzen 1 km, 3 km, 5 km und 10 km</li>
+            <li>Erfahrungspunkte (XP) und Level-System</li>
+            <li>Challenges (herausfordernde Ziele mit über 50 verschiedenen Metriken)</li>
+            <li>Monatliche Auszeichnungen</li>
+        </ul>
+        <p>(2) Die Gamification dient ausschließlich der Motivation und dem Spielspaß. Es findet keine automatisierte Entscheidungsfindung mit rechtlicher Wirkung im Sinne des Art. 22 DSGVO statt.</p>
+
+        <h3>5.9 Pause-Modus</h3>
+        <p>Der Nutzer kann sein Trainingstracking jederzeit pausieren (z. B. bei Verletzung oder Urlaub) mit optionaler Notiz. Während der Pause werden keine neuen Trainingsdaten verarbeitet.</p>
+
+        <h3>5.10 Profilverwaltung</h3>
+        <p>Der Nutzer kann ein Profil mit Anzeigename, Emoji, optionalem Profilbild (Avatar) und maximaler Herzfrequenz führen.</p>
+
+        <h3>5.11 Datenexport</h3>
+        <p>Der Nutzer kann jederzeit einen vollständigen Export seiner Daten als maschinenlesbare JSON-Datei anfordern (Art. 20 DSGVO). Der Export umfasst Profildaten, Trainings, Einwilligungen, Pausenlogs, Erfolge, persönliche Rekorde und den Level-Fortschritt.</p>
+
+        <h3>5.12 Offline-Support</h3>
+        <p>Die App puffert ausstehende Synchronisationen bei fehlender Internetverbindung in einer lokalen Warteschlange und überträgt sie automatisch, sobald die Verbindung wiederhergestellt ist.</p>
+
+        <h3>5.13 Biometrische Authentifizierung (optional)</h3>
+        <p>Die App unterstützt optional Face ID und Touch ID für den schnellen Login. Die biometrischen Daten werden ausschließlich lokal auf dem Gerät verarbeitet und nicht an den Betreiber übermittelt.</p>
+
+        <h2>§ 6 Technische Voraussetzungen</h2>
+        <p>(1) Zur Nutzung der App ist ein iOS-Gerät mit iOS 17.0 oder neuer und Internetverbindung erforderlich.</p>
+        <p>(2) Für die automatische Synchronisation von Trainingsdaten ist Apple HealthKit erforderlich. Der Zugriff auf HealthKit muss vom Nutzer in den iOS-Systemeinstellungen autorisiert werden.</p>
+        <p>(3) Für die Wetterdaten-Anreicherung wird Apple WeatherKit als iOS-Systemdienst verwendet.</p>
+        <p>(4) Der Betreiber übernimmt keine Gewähr für die Verfügbarkeit der App bei Wartungsarbeiten, technischen Störungen oder höherer Gewalt.</p>
+
+        <h2>§ 7 Einwilligungen in die Datenverarbeitung</h2>
+        <p>(1) Die App holt während des Onboarding-Prozesses folgende gesonderte Einwilligungen des Nutzers ein:</p>
+        <table>
+            <thead><tr><th>Einwilligung</th><th>Rechtsgrundlage</th><th>Hartblock?</th><th>Widerrufbar?</th></tr></thead>
+            <tbody>
+                <tr><td>Altersbestätigung (mind. 18 Jahre)</td><td>Art. 8 DSGVO</td><td>Ja – ohne keine Nutzung</td><td>Nein (einmalige Prüfung)</td></tr>
+                <tr><td>AGB & Datenschutzerklärung</td><td>Art. 6 Abs. 1 lit. a, b DSGVO</td><td>Ja – ohne keine Nutzung</td><td>Nein (vertragsnotwendig)</td></tr>
+                <tr><td>Gesundheitsdatenverarbeitung (HealthKit-Daten)</td><td>Art. 9 Abs. 2 lit. a DSGVO</td><td>Nein (Soft-Block)</td><td>Ja, jederzeit</td></tr>
+                <tr><td>Crew-Datenfreigabe</td><td>Art. 6 Abs. 1 lit. a DSGVO</td><td>Nein (Soft-Block)</td><td>Ja, jederzeit</td></tr>
+            </tbody>
+        </table>
+        
+        <p>(2) Die Einwilligungen werden mit folgenden Daten rechtssicher aufgezeichnet:</p>
+        <ul>
+            <li>Einwilligungstext (Text-Snapshot zum Zeitpunkt der Erteilung)</li>
+            <li>Einwilligungsversion (aktuell: 1.0)</li>
+            <li>App-Version</li>
+            <li>Gerätemodell, iOS-Version und Sprache</li>
+            <li>Zeitstempel der Erteilung (und des Widerrufs)</li>
+        </ul>
+        <p>(3) Bei einer wesentlichen Änderung der Datenschutzerklärung oder der AGB wird der Nutzer in der App zur erneuten Zustimmung aufgefordert (Re-Consent). Die App prüft hierzu regelmäßig (maximal alle 7 Tage) die aktuell gültige Version auf dem Server.</p>
+        <p>(4) Ein Widerruf von Einwilligungen ist jederzeit in den App-Einstellungen unter "Datenschutz" möglich. Der Widerruf wirkt ab sofort für die Zukunft und berührt nicht die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung.</p>
+        <p>(5) Folgen des Widerrufs:</p>
+        <ul>
+            <li><strong>Gesundheitsdaten:</strong> Die Synchronisation von HealthKit-Daten wird gestoppt. Bereits gespeicherte Daten bleiben unverändert erhalten.</li>
+            <li><strong>Crew-Datenfreigabe:</strong> Der Nutzer wird in Crew-Statistiken nicht mehr angezeigt. Andere Mitglieder sehen ihn weiterhin in der Mitgliederliste.</li>
+        </ul>
+        <p>(6) Die über Apple HealthKit importierten Gesundheitsdaten werden strikt zweckgebunden für die persönliche Trainingsanalyse verarbeitet. Eine Nutzung dieser Daten für Werbung, Marketing, den Verkauf an Dritte oder die Weitergabe an Datenbroker ist gemäß den Apple App Store Richtlinien (Guideline 5.1.1(v)) ausgeschlossen.</p>
+        <p>(7) Die Einwilligungstexte lauten im Wortlaut:</p>
+        <ul>
+            <li><strong>Altersbestätigung:</strong> "Ich bestätige, dass ich mindestens 18 Jahre alt bin."</li>
+            <li><strong>AGB & Datenschutz:</strong> "Ich habe die AGB und die Datenschutzerklärung gelesen und akzeptiere sie."</li>
+            <li><strong>Gesundheitsdaten:</strong> "Ich willige ein, dass meine über Apple HealthKit erfassten Gesundheitsdaten (Herzfrequenz, Trainingsdaten, Strecken) zur Trainingsanalyse auf Servern in der Europäischen Union gespeichert und verarbeitet werden."</li>
+            <li><strong>Crew-Datenfreigabe:</strong> "Ich bin damit einverstanden, dass meine Trainingsdaten für andere Mitglieder meiner Crew einsehbar sind – in Form meiner wöchentlichen Kilometer und Trainingsanzahl, meiner aktuellen Laufserie (in Wochen), prozentualen Veränderungen zu meinem 4-Wochen-Durchschnitt sowie aggregierten Crew-Summen."</li>
+        </ul>
+
+        <h2>§ 8 Pflichten des Nutzers</h2>
+        <p>(1) Der Nutzer ist verpflichtet:</p>
+        <ul>
+            <li>die App nicht missbräuchlich zu nutzen</li>
+            <li>keine rechtswidrigen, beleidigenden oder anstößigen Inhalte (insb. Anzeigenamen, Notizen, Crew-Namen) zu verwenden. Die App verfügt über einen Profanity-Filter zur automatischen Erkennung unangemessener Inhalte</li>
+            <li>keine automatisierten Programme (Bots, Skripte) zur Interaktion mit der App oder dem Backend einzusetzen</li>
+            <li>keine Sicherheitsmaßnahmen der App oder des Backends zu umgehen</li>
+            <li>keine Datenabfragen durchzuführen, die auf eine Überlastung der Systeme abzielen</li>
+        </ul>
+        <p>(2) Crew-Administratoren sind berechtigt, Mitglieder bei Verstößen gegen diese AGB aus der Crew zu entfernen.</p>
+        <p>(3) Der Betreiber behält sich das Recht vor, bei schwerwiegenden oder wiederholten Verstößen das Nutzerkonto zu sperren oder zu löschen.</p>
+
+        <h2>§ 9 Haftung</h2>
+        <p>(1) Der Betreiber haftet unbeschränkt:</p>
+        <ul>
+            <li>für Vorsatz und grobe Fahrlässigkeit</li>
+            <li>für die Verletzung des Lebens, des Körpers oder der Gesundheit</li>
+            <li>nach den Vorschriften des Produkthaftungsgesetzes</li>
+        </ul>
+        <p>(2) Der Betreiber haftet für leicht fahrlässige Pflichtverletzungen nur, wenn eine wesentliche Vertragspflicht (Kardinalpflicht) verletzt wurde, deren Erfüllung die ordnungsgemäße Durchführung des Vertrags überhaupt erst ermöglicht und auf deren Einhaltung der Nutzer regelmäßig vertrauen darf. In diesem Fall ist die Haftung der Höhe nach auf den typischen, vorhersehbaren Schaden begrenzt.</p>
+        <p>(3) Die Haftung für leicht fahrlässige Verletzung von nicht wesentlichen Vertragspflichten ist ausgeschlossen.</p>
+        <p>(4) Der Betreiber übernimmt keine Haftung für:</p>
+        <ul>
+            <li>die Vollständigkeit, Richtigkeit oder Aktualität der Trainings- und Gesundheitsdaten, insbesondere im Hinblick auf die von Apple HealthKit bereitgestellte Datenqualität</li>
+            <li>die Verfügbarkeit des Supabase-Backends</li>
+            <li>Schäden, die durch fehlerhafte Synchronisation bei fehlender Internetverbindung entstehen</li>
+            <li>Inhalte, die von Crew-Mitgliedern geteilt oder gepostet werden (User Generated Content)</li>
+            <li>gesundheitliche Schäden oder Verletzungen, die aus der Nutzung der App entstehen (die App ist ein reines Fitness-Tracking-Tool und kein Medizinprodukt; sie stellt keine medizinische Beratung, Diagnose oder Trainingsempfehlung dar)</li>
+        </ul>
+        <p>(5) Der Betreiber übernimmt keine Gewähr für die Richtigkeit, Vollständigkeit und Aktualität der in der App dargestellten Inhalte.</p>
+        <p>(6) Die vorstehenden Haftungsbeschränkungen gelten auch für die persönliche Haftung von Erfüllungsgehilfen und gesetzlichen Vertretern des Betreibers.</p>
+
+        <h2>§ 10 Verfügbarkeit und Wartung</h2>
+        <p>(1) Die App wird als kostenfreier Dienst ohne Gewährleistung einer bestimmten Verfügbarkeit bereitgestellt.</p>
+        <p>(2) Der Betreiber ist berechtigt, die App vorübergehend einzuschränken oder außer Betrieb zu nehmen, soweit dies für Wartungsarbeiten, technische Aktualisierungen oder aus rechtlichen Gründen erforderlich ist. Der Betreiber wird nach Möglichkeit auf anstehende Wartungsarbeiten hinweisen.</p>
+        <p>(3) Der Betreiber kann die App oder einzelne Funktionen jederzeit einstellen, ändern oder durch andere Angebote ersetzen, sofern dies für den Nutzer zumutbar ist.</p>
+
+        <h2>§ 11 Datenschutz</h2>
+        <p>(1) Die Erhebung, Verarbeitung und Nutzung personenbezogener Daten erfolgt gemäß der Datenschutzgrundverordnung (DSGVO), dem Bundesdatenschutzgesetz (BDSG) und dem Telekommunikation-Digitale-Dienste-Datenschutz-Gesetz (TDDDG).</p>
+        <p>(2) Die vollständige Datenschutzerklärung ist unter <a href="https://haeschenlauf.de/datenschutz">https://haeschenlauf.de/datenschutz</a> abrufbar und Bestandteil dieser AGB.</p>
+        <p>(3) Der Betreiber verarbeitet personenbezogene Daten nur im erforderlichen Umfang und ausschließlich zu den in der Datenschutzerklärung genannten Zwecken.</p>
+        <p>(4) Gesundheitsdaten (Art. 9 DSGVO) werden nur mit ausdrücklicher Einwilligung und auf sicheren Servern in der Europäischen Union (Frankfurt am Main) verarbeitet.</p>
+        <p>(5) Der Betreiber hat einen Auftragsverarbeitungsvertrag (DPA) mit dem Backend-Anbieter Supabase Inc. abgeschlossen.</p>
+
+        <h2>§ 12 Speicherdauer und Löschung</h2>
+        <p>(1) Die Speicherdauer für die verschiedenen Datenkategorien ist der folgenden Tabelle zu entnehmen:</p>
+        <table>
+            <thead><tr><th>Datenkategorie</th><th>Speicherdauer</th></tr></thead>
+            <tbody>
+                <tr><td>Account-Stammdaten (E-Mail, Anzeigename)</td><td>Bis zur Kontolöschung</td></tr>
+                <tr><td>Herzfrequenz-Einzeldaten</td><td>36 Monate (danach automatisch gelöscht)</td></tr>
+                <tr><td>Trainingszusammenfassungen (Distanz, Dauer, Pace)</td><td>Unbegrenzt (solange der Account besteht)</td></tr>
+                <tr><td>Erfolge und Bestleistungen</td><td>Unbegrenzt (solange der Account besteht)</td></tr>
+                <tr><td>Einwilligungsaufzeichnungen</td><td>3 Jahre (danach automatisch gelöscht)</td></tr>
+                <tr><td>Lokale Daten auf dem Gerät</td><td>Bis zur App-Deinstallation oder Kontolöschung</td></tr>
+                <tr><td>Crew-Bezugsdaten (für andere Mitglieder)</td><td>Auch nach Kontolöschung des Nutzers für das Team erhalten</td></tr>
+            </tbody>
+        </table>
+        <p>(2) Der Nutzer kann seinen Account jederzeit über die App-Funktion "Konto vollständig löschen" (Profil → Konto vollständig löschen) löschen. Der Löschvorgang umfasst:</p>
+        <ul>
+            <li>Löschung aller persönlichen Daten aus der Datenbank (RPC <code>delete_user_data</code>)</li>
+            <li>Löschung des Authentifizierungs-Accounts (Edge Function <code>delete_account</code>)</li>
+            <li>Löschung aller lokalen Daten (UserDefaults, Keychain, Auto-Save-Drafts)</li>
+        </ul>
+        <p>(3) Von der Löschung ausgenommen bleiben Crew-Läufe, an denen der Nutzer teilgenommen hat – diese bleiben für das Team als historische Aufzeichnung erhalten.</p>
+        <p>(4) Vor der Löschung kann der Nutzer einen Datenexport gemäß Art. 20 DSGVO durchführen.</p>
+
+        <h2>§ 13 Urheberrecht und Nutzungsrechte</h2>
+        <p>(1) Die App, ihr Quellcode, das Design, die Grafiken sowie alle sonstigen Bestandteile sind urheberrechtlich geschützt. Alle Rechte vorbehalten.</p>
+        <p>(2) Der Betreiber räumt dem Nutzer ein einfaches, nicht übertragbares, auf die Laufzeit des Vertrags beschränktes Recht zur Nutzung der App für den privaten, nicht-kommerziellen Gebrauch ein. Hinsichtlich der Einräumung der Nutzungsrechte an der iOS-Software selbst gelten ergänzend die Bestimmungen des Apple Standard EULA (Licensed Application End User License Agreement) sowie die Apple Media Services Terms and Conditions. Soweit diese Bestimmungen den zwingenden Vorschriften des deutschen Rechts oder den vorstehenden Regelungen zu den Cloud- und Social-Diensten der App widersprechen, gehen die vorstehenden Regelungen vor.</p>
+        <p>(3) Die vom Nutzer in der App erstellten Inhalte (Trainingsdaten, Profilinformationen, Notizen) verbleiben im Eigentum des Nutzers. Der Betreiber erhält das Recht, diese Inhalte zum Zweck der Bereitstellung der App-Funktionen zu speichern und zu verarbeiten.</p>
+
+        <h2>§ 14 Kündigung / Account-Löschung</h2>
+        <p>(1) Der Nutzer kann den Vertrag jederzeit durch Löschung seines Accounts gemäß § 12 (2) kündigen. Eine Kündigungsfrist besteht nicht.</p>
+        <p>(2) Der Betreiber kann den Vertrag aus wichtigem Grund kündigen, insbesondere bei:</p>
+        <ul>
+            <li>schwerwiegenden Verstößen gegen diese AGB</li>
+            <li>rechtswidriger Nutzung der App</li>
+            <li>Zahlungsverzug (derzeit nicht anwendbar, da App kostenfrei)</li>
+        </ul>
+        <p>(3) Der Betreiber kann die App insgesamt oder in Teilen einstellen. In diesem Fall wird der Betreiber die Nutzer rechtzeitig informieren und ihnen Gelegenheit geben, ihre Daten zu exportieren.</p>
+        <p>(4) Mit Beendigung des Vertrags werden die personenbezogenen Daten des Nutzers gemäß der Datenschutzerklärung gelöscht.</p>
+
+        <h2>§ 15 Änderungen dieser AGB</h2>
+        <p>(1) Der Betreiber behält sich vor, diese AGB jederzeit mit Wirkung für die Zukunft zu ändern, sofern die Änderung für den Nutzer zumutbar ist.</p>
+        <p>(2) Über Änderungen wird der Nutzer in der App informiert. Die Zustimmung des Nutzers zu den geänderten AGB gilt als erteilt, wenn der Nutzer die App nach Inkrafttreten der Änderungen weiter nutzt, es sei denn, der Nutzer widerspricht innerhalb von 6 Wochen nach Bekanntgabe.</p>
+        <p>(3) Im Falle des Widerspruchs ist der Betreiber berechtigt, den Nutzungsvertrag mit sofortiger Wirkung zu kündigen.</p>
+        <p>(4) Die aktuelle Fassung der AGB ist jederzeit unter <a href="https://haeschenlauf.de/agb">https://haeschenlauf.de/agb</a> abrufbar.</p>
+
+        <h2>§ 16 Salvatorische Klausel</h2>
+        <p>Sollte eine Bestimmung dieser AGB unwirksam sein oder werden, so wird hierdurch die Gültigkeit der übrigen Bestimmungen nicht berührt. Anstelle der unwirksamen Bestimmung gilt eine wirksame Regelung als vereinbart, die dem wirtschaftlichen Zweck der unwirksamen Bestimmung am nächsten kommt. Entsprechendes gilt für etwaige Vertragslücken.</p>
+
+        <h2>§ 17 Anwendbares Recht und Gerichtsstand</h2>
+        <p>(1) Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts (CISG).</p>
+        <p>(2) Ist der Nutzer Kaufmann, juristische Person des öffentlichen Rechts oder öffentlich-rechtliches Sondervermögen, ist ausschließlicher Gerichtsstand für alle Streitigkeiten aus diesem Vertrag Mülheim an der Ruhr.</p>
+        <p>(3) Für Verbraucher gilt § 17 (2) nur, wenn der Verbraucher seinen Wohnsitz nicht im Gebiet der Europäischen Union hat. Im Übrigen bleibt die Befugnis des Verbrauchers, das allgemeine Gericht seines Wohnsitzes anzurufen, unberührt.</p>
+
+        <h2>§ 18 Streitbeilegung</h2>
+        <p>(1) Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit, die unter <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/consumers/odr/</a> erreichbar ist.</p>
+        <p>(2) Der Betreiber ist nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+
+        <h2>§ 19 Schlussbestimmungen</h2>
+        <p>(1) Erfüllungsort für alle Leistungen aus diesem Vertrag ist der Sitz des Betreibers (Mülheim an der Ruhr).</p>
+        <p>(2) Die App wird betrieben von Felix Bischoff, Liebigstraße 15, 45479 Mülheim an der Ruhr, Deutschland.</p>
+        <p>(3) Diese AGB wurden zuletzt am 09.06.2026 aktualisiert.</p>
+
+        <h2>§ 20 Apple App Store Bestimmungen (Drittbegünstigter)</h2>
+        <p>(1) <strong>Vertragsparteien:</strong> Dieser Nutzungsvertrag wird ausschließlich zwischen Ihnen (dem Nutzer) und dem Betreiber (Felix Bischoff) geschlossen. Apple Inc. („Apple") ist nicht Vertragspartei und übernimmt keine Verantwortung für die App oder deren Inhalte.</p>
+        <p>(2) <strong>Support und Wartung:</strong> Apple ist nicht verpflichtet, Wartungs- oder Supportdienstleistungen für die App zu erbringen. Der Support obliegt ausschließlich dem Betreiber.</p>
+        <p>(3) <strong>Drittbegünstigter (Third-Party Beneficiary):</strong> Sie erkennen an, dass Apple ein Drittbegünstigter dieser AGB ist. Apple hat das Recht (und wird als Drittbegünstigter behandelt), diese AGB Ihnen gegenüber als Dritter durchzusetzen.</p>
+        <p>(4) <strong>Haftungsfreistellung für Apple:</strong> Der Betreiber ist allein verantwortlich für sämtliche Ansprüche, die sich aus der App oder Ihrer Nutzung ergeben, insbesondere im Hinblick auf Produkthaftung, gesetzliche Vorschriften oder Verletzungen geistigen Eigentums Dritter.</p>
+        <p>(5) <strong>Export-Bestimmungen:</strong> Sie sichern zu, dass Sie die App nicht in ein Land exportieren oder nutzen, das einem Embargo der US-Regierung unterliegt oder von der US-Regierung als „Terrorismus unterstützendes" Land eingestuft wurde.</p>
+
+        <p style="margin-top: 40px;"><em>Ende der Allgemeinen Geschäftsbedingungen</em></p>
     </div>
 
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>Hasilauf</h4>
+                    <h4>Häschenlauf</h4>
                     <a href="index.html#crews">Crews</a>
                     <a href="index.html#features">Für dich</a>
-                    <a href="https://apps.apple.com/app/id0000000000">App Store</a>
+                    <a href="https://apps.apple.com/app/id6780870501">App Store</a>
                 </div>
                 <div class="footer-col">
                     <h4>Rechtliches</h4>
@@ -136,11 +452,11 @@
                 </div>
                 <div class="footer-col">
                     <h4>Support</h4>
-                    <a href="mailto:support@hasilauf.nrw">support@hasilauf.nrw</a>
+                    <a href="mailto:haeschenlauf@icloud.com">haeschenlauf@icloud.com</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                &copy; 2026 Felix &middot; Hasilauf &middot; Alle Rechte vorbehalten
+                &copy; 2026 Felix Bischoff &middot; Häschenlauf &middot; Alle Rechte vorbehalten
             </div>
         </div>
     </footer>
