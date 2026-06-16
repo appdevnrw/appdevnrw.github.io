@@ -8,7 +8,7 @@
 
     <!-- Open Graph -->
     <meta property="og:title" content="Häschenlauf – Du musst nicht die Schnellste sein. Nur dranbleiben.">
-    <meta property="og:description" content="Häschenlauf belohnt Fortschritt, nicht Tempo. Die Lauf-App für fairen Wettbewerb ohne Vergleichsdruck.">
+    <meta property="og:description" content="Die Lauf-App gegen Vergleichsdruck. Private Crews, fairer Wettbewerb, keine Ranglisten.">
     <meta property="og:image" content="icon.png">
     <meta property="og:url" content="https://haeschenlauf.de">
     <meta property="og:type" content="website">
@@ -143,7 +143,7 @@
         .hero .tagline {
             font-size: clamp(18px, 2.5vw, 22px);
             color: var(--text-muted);
-            max-width: 620px; margin: 0 auto 42px;
+            max-width: 680px; margin: 0 auto 42px;
             line-height: 1.5;
         }
         .cta-button {
@@ -172,53 +172,62 @@
             margin: 0 auto 64px; line-height: 1.55;
         }
 
-        /* ── Problem Section (Anna/Tom) ── */
-        .problem-grid {
+        /* ── Das Problem (Comparison) ── */
+        .comparison-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 32px;
-            max-width: 900px;
+            gap: 24px;
+            max-width: 860px;
             margin: 0 auto;
         }
-        @media (max-width: 700px) { .problem-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 700px) { .comparison-grid { grid-template-columns: 1fr; } }
         
-        .problem-card {
+        .comp-card {
             padding: 36px;
             border-radius: 28px;
             border: 1px solid var(--border);
         }
-        .problem-card.classic { 
+        .comp-card.bad { 
             background: rgba(255, 59, 48, 0.03); 
             border-color: rgba(255, 59, 48, 0.15);
         }
-        .problem-card.haeshen { 
+        .comp-card.good { 
             background: var(--surface); 
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-color: rgba(0, 122, 255, 0.2);
             box-shadow: var(--shadow);
         }
-        .problem-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 20px; }
-        .problem-card ul { list-style: none; }
-        .problem-card li {
+        .comp-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 20px; }
+        .comp-card ul { list-style: none; }
+        .comp-card li {
             padding: 12px 0;
             font-size: 16px;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 12px;
             border-bottom: 1px solid var(--border);
+            line-height: 1.5;
         }
-        .problem-card li:last-child { border-bottom: none; }
-        .problem-card.classic li { color: var(--text-muted); }
-        .problem-card.haeshen li { color: var(--text); font-weight: 500; }
-        .problem-card.haeshen li::before {
+        .comp-card li:last-child { border-bottom: none; }
+        .comp-card.bad li { color: var(--text-muted); }
+        .comp-card.bad li::before {
+            content: '✕';
+            color: var(--red);
+            font-weight: 800;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        .comp-card.good li { color: var(--text); font-weight: 500; }
+        .comp-card.good li::before {
             content: '✓';
             color: var(--green);
             font-weight: 800;
             font-size: 18px;
+            flex-shrink: 0;
         }
 
-        /* ── Solution (3 Features) ── */
+        /* ── Die Lösung (3 Feature Blocks) ── */
         .solution-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -231,32 +240,33 @@
         .solution-card {
             background: var(--surface);
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--border);
             border-radius: 24px;
             padding: 32px;
             text-align: center;
         }
         .solution-icon {
-            width: 56px; height: 56px;
-            border-radius: 16px;
+            width: 64px; height: 64px;
+            border-radius: 18px;
             background: rgba(0, 122, 255, 0.1);
             display: flex; align-items: center; justify-content: center;
             margin: 0 auto 20px;
         }
-        .solution-icon svg { width: 28px; height: 28px; color: var(--blue); }
+        .solution-icon svg { width: 32px; height: 32px; color: var(--blue); }
         .solution-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
-        .solution-card p { color: var(--text-muted); font-size: 15px; line-height: 1.6; }
+        .solution-card p { color: var(--text-muted); font-size: 15px; line-height: 1.55; }
 
-        /* ── Screenshot Carousel ── */
-        .screenshots { position: relative; overflow: hidden; background: rgba(0, 122, 255, 0.02); }
+        /* ── Carousel (Screenshots & Testimonials) ── */
         .carousel-container {
-            max-width: 600px;
-            margin: 0 auto;
             position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
         }
         .carousel-track {
             display: flex;
-            transition: transform 0.5s ease-in-out;
+            transition: transform 0.5s ease;
         }
         .carousel-slide {
             min-width: 100%;
@@ -264,88 +274,50 @@
         }
         .carousel-slide img {
             width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+            display: block;
             border-radius: 24px;
             box-shadow: var(--shadow-lg);
             border: 1px solid var(--border);
         }
-        .carousel-nav {
+        .carousel-controls {
             display: flex;
             justify-content: center;
-            gap: 12px;
+            align-items: center;
+            gap: 16px;
             margin-top: 32px;
         }
-        .carousel-dot {
-            width: 12px; height: 12px;
+        .carousel-btn {
+            width: 44px; height: 44px;
             border-radius: 50%;
-            background: var(--border);
-            border: none;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .carousel-dot.active { background: var(--blue); }
-
-        /* ── Crews (GlassCard) ── */
-        .crew-section {
-            text-align: center;
-        }
-        .crew-card {
-            max-width: 700px;
-            margin: 0 auto;
             background: var(--surface);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--border);
-            border-radius: 32px;
-            padding: 48px;
-            box-shadow: var(--shadow-lg);
-        }
-        .crew-avatars {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-        .crew-avatar {
-            width: 64px; height: 64px;
-            border-radius: 50%;
+            cursor: pointer;
             display: flex; align-items: center; justify-content: center;
-            color: white; font-weight: 700; font-size: 24px;
+            transition: all 0.2s;
         }
-        .crew-avatar.f { background: linear-gradient(135deg, #FF9500, #FF3B30); }
-        .crew-avatar.p { background: linear-gradient(135deg, #34C759, #30B0C7); }
-        .crew-avatar.j { background: linear-gradient(135deg, #007AFF, #5856D6); }
-        .crew-card h3 { font-size: 28px; font-weight: 700; margin-bottom: 12px; }
-        .crew-card p { color: var(--text-muted); font-size: 17px; line-height: 1.6; max-width: 500px; margin: 0 auto; }
-
-        /* ── No Feed Statement ── */
-        .statement-section {
-            text-align: center;
-            padding: 100px 24px;
+        .carousel-btn:hover { background: var(--blue); color: white; }
+        .carousel-btn svg { width: 20px; height: 20px; }
+        .carousel-dots {
+            display: flex;
+            gap: 8px;
         }
-        .statement-section h2 {
-            font-size: clamp(36px, 5vw, 56px);
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            margin-bottom: 24px;
-            background: linear-gradient(135deg, var(--blue), var(--blue-dark));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .carousel-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: var(--border);
+            cursor: pointer;
+            transition: all 0.2s;
         }
-        .statement-section p {
-            color: var(--text-muted);
-            font-size: 20px;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
+        .carousel-dot.active {
+            background: var(--blue);
+            width: 24px;
+            border-radius: 4px;
         }
 
-        /* ── Testimonials Carousel ── */
-        .testimonials {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
+        /* ── Testimonial Cards ── */
         .testimonial-card {
             background: var(--surface);
             backdrop-filter: blur(20px);
@@ -353,8 +325,9 @@
             border: 1px solid var(--border);
             border-radius: 28px;
             padding: 48px;
+            max-width: 700px;
+            margin: 0 auto;
             text-align: center;
-            box-shadow: var(--shadow);
         }
         .testimonial-card blockquote {
             font-size: clamp(18px, 2.5vw, 22px);
@@ -368,7 +341,69 @@
             font-style: normal;
             color: var(--text-muted);
             font-size: 16px;
-            display: block;
+            font-weight: 600;
+        }
+
+        /* ── Crew GlassCard ── */
+        .crew-card {
+            background: var(--surface);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            padding: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: var(--shadow);
+        }
+        .crew-members {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+        .crew-member {
+            text-align: center;
+        }
+        .crew-avatar {
+            width: 72px; height: 72px;
+            border-radius: 50%;
+            margin: 0 auto 12px;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-weight: 700; font-size: 28px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+        .crew-avatar.felix { background: linear-gradient(135deg, #007AFF, #5856D6); }
+        .crew-avatar.paula { background: linear-gradient(135deg, #FF9500, #FF3B30); }
+        .crew-avatar.johann { background: linear-gradient(135deg, #34C759, #30B0C7); }
+        .crew-name { font-weight: 600; font-size: 16px; }
+        .crew-card p {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* ── Statement Section ── */
+        .statement-section {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .statement-section h2 {
+            font-size: clamp(32px, 5vw, 52px);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .statement-section p {
+            font-size: 20px;
+            color: var(--text-muted);
+            line-height: 1.6;
         }
 
         /* ── Trust (Privacy & Apple) ── */
@@ -464,10 +499,11 @@
                 Häschenlauf
             </a>
             <ul class="nav-links">
-                <li><a href="#problem">Warum</a></li>
-                <li><a href="#solution">Wie</a></li>
-                <li><a href="#crew">Crews</a></li>
-                <li><a href="#trust">Datenschutz</a></li>
+                <li><a href="#problem">Problem</a></li>
+                <li><a href="#solution">Lösung</a></li>
+                <li><a href="#screenshots">App</a></li>
+                <li><a href="#crews">Crews</a></li>
+                <li><a href="#privacy">Datenschutz</a></li>
                 <li><a href="https://apps.apple.com/app/id6780870501">Download</a></li>
             </ul>
             <button class="menu-toggle" onclick="document.getElementById('mobile-menu').style.display = document.getElementById('mobile-menu').style.display === 'block' ? 'none' : 'block'" aria-label="Menü">
@@ -475,10 +511,11 @@
             </button>
         </div>
         <div id="mobile-menu" class="mobile-menu">
-            <a href="#problem" onclick="document.getElementById('mobile-menu').style.display='none'">Warum</a>
-            <a href="#solution" onclick="document.getElementById('mobile-menu').style.display='none'">Wie</a>
-            <a href="#crew" onclick="document.getElementById('mobile-menu').style.display='none'">Crews</a>
-            <a href="#trust" onclick="document.getElementById('mobile-menu').style.display='none'">Datenschutz</a>
+            <a href="#problem" onclick="document.getElementById('mobile-menu').style.display='none'">Problem</a>
+            <a href="#solution" onclick="document.getElementById('mobile-menu').style.display='none'">Lösung</a>
+            <a href="#screenshots" onclick="document.getElementById('mobile-menu').style.display='none'">App</a>
+            <a href="#crews" onclick="document.getElementById('mobile-menu').style.display='none'">Crews</a>
+            <a href="#privacy" onclick="document.getElementById('mobile-menu').style.display='none'">Datenschutz</a>
             <a href="https://apps.apple.com/app/id6780870501">Download</a>
         </div>
     </nav>
@@ -496,24 +533,24 @@
         </div>
     </header>
 
-    <!-- Problem Section -->
+    <!-- Das Problem -->
     <section id="problem">
         <div class="container">
             <h2 class="section-title">Warum viele mit dem Laufen wieder aufhören</h2>
             <p class="section-subtitle">Klassische Lauf-Apps zeigen dir ständig Menschen, die schneller, stärker oder ausdauernder sind. Das motiviert manche. Viele andere geben irgendwann auf.</p>
             
-            <div class="problem-grid">
-                <div class="problem-card classic">
-                    <h3>Klassische Lauf-Apps</h3>
+            <div class="comparison-grid">
+                <div class="comp-card bad">
+                    <h3>Heute bei klassischen Lauf-Apps</h3>
                     <ul>
                         <li>Anna läuft 12 km in 55 Minuten</li>
                         <li>Tom läuft 5 km in 35 Minuten</li>
                         <li>Tom fühlt sich langsam</li>
-                        <li>Vergleichsdruck statt Motivation</li>
+                        <li>Tom verliert die Motivation</li>
                     </ul>
                 </div>
-                <div class="problem-card haeshen">
-                    <h3>Häschenlauf</h3>
+                <div class="comp-card good">
+                    <h3>Heute bei Häschenlauf</h3>
                     <ul>
                         <li>Anna verbessert sich um 3%</li>
                         <li>Tom verbessert sich um 12%</li>
@@ -525,30 +562,30 @@
         </div>
     </section>
 
-    <!-- Solution Section -->
+    <!-- Die Lösung -->
     <section id="solution">
         <div class="container">
             <h2 class="section-title">Dein einziger Gegner ist dein gestriges Ich</h2>
-            <p class="section-subtitle">Häschenlauf belohnt Entwicklung statt Talent. Hier sind die drei Prinzipien, die das möglich machen.</p>
+            <p class="section-subtitle">Häschenlauf dreht das Prinzip um: Nicht die Bestzeiten zählen, sondern deine persönliche Entwicklung.</p>
             
             <div class="solution-grid">
                 <div class="solution-card">
                     <div class="solution-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
                     </div>
                     <h3>Fortschritt statt Pace</h3>
                     <p>Nicht die Schnellsten gewinnen. Diejenigen, die sich am meisten verbessern.</p>
                 </div>
                 <div class="solution-card">
                     <div class="solution-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>
                     </div>
                     <h3>Streaks statt Ranglisten</h3>
-                    <p>Wer dranbleibt, gewinnt. Deine Gewohnheit zählt mehr als deine Bestzeit.</p>
+                    <p>Wer dranbleibt, gewinnt. Kontinuität schlägt Geschwindigkeit.</p>
                 </div>
                 <div class="solution-card">
                     <div class="solution-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
                     </div>
                     <h3>Ziele statt Likes</h3>
                     <p>Keine Kommentare. Keine Kudos. Nur dein persönlicher Fortschritt.</p>
@@ -558,13 +595,13 @@
     </section>
 
     <!-- Screenshots Carousel -->
-    <section id="screenshots" class="screenshots">
+    <section id="screenshots">
         <div class="container">
             <h2 class="section-title">So sieht's aus</h2>
             <p class="section-subtitle">Öffne die App. Sieh deinen Fortschritt. Leg das Handy weg.</p>
             
-            <div class="carousel-container">
-                <div class="carousel-track" id="screenshotTrack">
+            <div class="carousel-container" id="screenshot-carousel">
+                <div class="carousel-track">
                     <div class="carousel-slide">
                         <img src="screenshot-dashboard.png" alt="Häschenlauf Dashboard mit Wochenringen und Statistiken">
                     </div>
@@ -578,83 +615,109 @@
                         <img src="screenshot-challenges.png" alt="Gamification, Achievements und Challenges in der App">
                     </div>
                 </div>
-                <div class="carousel-nav" id="screenshotNav">
-                    <button class="carousel-dot active" data-slide="0"></button>
-                    <button class="carousel-dot" data-slide="1"></button>
-                    <button class="carousel-dot" data-slide="2"></button>
-                    <button class="carousel-dot" data-slide="3"></button>
+                <div class="carousel-controls">
+                    <button class="carousel-btn" onclick="moveCarousel('screenshot-carousel', -1)" aria-label="Vorheriges Bild">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                    </button>
+                    <div class="carousel-dots">
+                        <div class="carousel-dot active" onclick="goToSlide('screenshot-carousel', 0)"></div>
+                        <div class="carousel-dot" onclick="goToSlide('screenshot-carousel', 1)"></div>
+                        <div class="carousel-dot" onclick="goToSlide('screenshot-carousel', 2)"></div>
+                        <div class="carousel-dot" onclick="goToSlide('screenshot-carousel', 3)"></div>
+                    </div>
+                    <button class="carousel-btn" onclick="moveCarousel('screenshot-carousel', 1)" aria-label="Nächstes Bild">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Crews Section -->
-    <section id="crew">
-        <div class="container crew-section">
+    <!-- Crews -->
+    <section id="crews">
+        <div class="container">
             <h2 class="section-title">Lauf mit deinen Leuten</h2>
             <p class="section-subtitle">Private Crews. Keine Öffentlichkeit. Keine Fremden. Nur die Menschen, mit denen du tatsächlich laufen möchtest.</p>
             
             <div class="crew-card">
-                <div class="crew-avatars">
-                    <div class="crew-avatar f">F</div>
-                    <div class="crew-avatar p">P</div>
-                    <div class="crew-avatar j">J</div>
+                <div class="crew-members">
+                    <div class="crew-member">
+                        <div class="crew-avatar felix">F</div>
+                        <div class="crew-name">Felix</div>
+                    </div>
+                    <div class="crew-member">
+                        <div class="crew-avatar paula">P</div>
+                        <div class="crew-name">Paula</div>
+                    </div>
+                    <div class="crew-member">
+                        <div class="crew-avatar johann">J</div>
+                        <div class="crew-name">Johann</div>
+                    </div>
                 </div>
-                <h3>Deine Crew. Deine Regeln.</h3>
-                <p>Gründe private Gruppen mit 2-20 Personen. Startet Challenges, vergleicht Fortschritte und feiert gemeinsam – ohne dass Fremde zuschauen oder kommentieren.</p>
+                <p>Gründe private Gruppen für dich und deine Freunde. Startet Challenges, vergleicht eure Fortschritte und feiert gemeinsam eure Erfolge – ganz ohne Leistungsdruck.</p>
             </div>
         </div>
     </section>
 
-    <!-- No Feed Statement -->
-    <section class="statement-section">
-        <h2>Kein Feed. Kein Scrollen.<br>Kein Leistungsdruck.</h2>
-        <p>Häschenlauf ist keine Social-Media-App. Wir wollen, dass du laufen gehst – nicht scrollen.</p>
+    <!-- Kein Feed Statement -->
+    <section>
+        <div class="container">
+            <div class="statement-section">
+                <h2>Kein Feed. Kein Scrollen.<br>Kein Leistungsdruck.</h2>
+                <p>Häschenlauf ist keine Social-Media-App. Wir wollen, dass du laufen gehst – nicht scrollen.</p>
+            </div>
+        </div>
     </section>
 
     <!-- Testimonials Carousel -->
-    <section id="testimonials">
+    <section>
         <div class="container">
             <h2 class="section-title">Was unsere Tester sagen</h2>
-            <p class="section-subtitle">Echte Stimmen von echten Läufern.</p>
+            <p class="section-subtitle">Echte Stimmen aus der Beta-Phase</p>
             
-            <div class="testimonials">
-                <div class="carousel-container">
-                    <div class="carousel-track" id="testimonialTrack">
-                        <div class="carousel-slide">
-                            <div class="testimonial-card">
-                                <blockquote>„Häschenlauf entstand aus einer kleinen Lauf-Crew, die sich einfach nur motivieren wollte – ohne sich für langsame Pace oder hohe Herzfrequenz rechtfertigen zu müssen."</blockquote>
-                                <cite>— Felix Bischoff, Gründer von Häschenlauf</cite>
-                            </div>
-                        </div>
-                        <div class="carousel-slide">
-                            <div class="testimonial-card">
-                                <blockquote>„Ich bin ehrgeizig, aber bei klassischen Lauf-Apps hatte ich gegen meine schnellen Freunde oft keine Chance. Bei Häschenlauf kann ich endlich fair mit ihnen konkurrieren, weil es um prozentuale Verbesserung geht, nicht um die absolute Pace. Das macht den Wettbewerb für mich erst wieder richtig spannend."</blockquote>
-                                <cite>— Paula, Beta-Testerin</cite>
-                            </div>
-                        </div>
-                        <div class="carousel-slide">
-                            <div class="testimonial-card">
-                                <blockquote>„Am Anfang habe ich mich in anderen Apps immer nur als ‚der Langsame' gefühlt. Häschenlauf hat das für mich geändert: Ich sehe jetzt in den Statistiken meinen eigenen Fortschritt. Es ist ein unglaublich motivierendes Gefühl, wenn die App mir bestätigt, dass ich mich verbessert habe – ganz egal, was die anderen machen."</blockquote>
-                                <cite>— Johann, Laufanfänger & Tester</cite>
-                            </div>
+            <div class="carousel-container" id="testimonial-carousel">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <div class="testimonial-card">
+                            <blockquote>„Häschenlauf entstand aus einer kleinen Lauf-Crew, die sich einfach nur motivieren wollte – ohne sich für langsame Pace oder hohe Herzfrequenz rechtfertigen zu müssen."</blockquote>
+                            <cite>— Felix Bischoff, Gründer von Häschenlauf</cite>
                         </div>
                     </div>
-                    <div class="carousel-nav" id="testimonialNav">
-                        <button class="carousel-dot active" data-slide="0"></button>
-                        <button class="carousel-dot" data-slide="1"></button>
-                        <button class="carousel-dot" data-slide="2"></button>
+                    <div class="carousel-slide">
+                        <div class="testimonial-card">
+                            <blockquote>„Ich bin ehrgeizig, aber bei klassischen Lauf-Apps hatte ich gegen meine schnellen Freunde oft keine Chance. Bei Häschenlauf kann ich endlich fair mit ihnen konkurrieren, weil es um prozentuale Verbesserung geht, nicht um die absolute Pace. Das macht den Wettbewerb für mich erst wieder richtig spannend."</blockquote>
+                            <cite>— Paula, Beta-Testerin</cite>
+                        </div>
                     </div>
+                    <div class="carousel-slide">
+                        <div class="testimonial-card">
+                            <blockquote>„Am Anfang habe ich mich in anderen Apps immer nur als ‚der Langsame' gefühlt. Häschenlauf hat das für mich geändert: Ich sehe jetzt in den Statistiken meinen eigenen Fortschritt. Es ist ein unglaublich motivierendes Gefühl, wenn die App mir bestätigt, dass ich mich verbessert habe – ganz egal, was die anderen machen."</blockquote>
+                            <cite>— Johann, Laufanfänger & Tester</cite>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn" onclick="moveCarousel('testimonial-carousel', -1)" aria-label="Vorheriges Testimonial">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                    </button>
+                    <div class="carousel-dots">
+                        <div class="carousel-dot active" onclick="goToSlide('testimonial-carousel', 0)"></div>
+                        <div class="carousel-dot" onclick="goToSlide('testimonial-carousel', 1)"></div>
+                        <div class="carousel-dot" onclick="goToSlide('testimonial-carousel', 2)"></div>
+                    </div>
+                    <button class="carousel-btn" onclick="moveCarousel('testimonial-carousel', 1)" aria-label="Nächstes Testimonial">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Trust Section -->
-    <section id="trust">
+    <!-- Trust (Privacy & Apple) -->
+    <section id="privacy">
         <div class="container">
             <h2 class="section-title">Privatsphäre & Vertrauen</h2>
-            <p class="section-subtitle">Deine Daten gehören dir. Punkt.</p>
+            <p class="section-subtitle">Entwickelt für Apple-Nutzer, die Wert auf ihre Daten legen.</p>
             
             <div class="trust-grid">
                 <div class="trust-box">
@@ -662,12 +725,12 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                     </div>
                     <h3>Maximale Privatsphäre</h3>
-                    <p>Wir wollen deine Motivation messen, nicht dein Privatleben.</p>
+                    <p>Häschenlauf trackt dich nicht. Deine Daten gehören dir.</p>
                     <ul>
-                        <li>Keine Tracker. Keine Werbung.</li>
-                        <li>Keine versteckten Interessen</li>
+                        <li>Keine Werbung</li>
+                        <li>Keine Tracker oder Drittanbieter-SDKs</li>
                         <li>Daten-Export als JSON jederzeit möglich</li>
-                        <li>EU-Server. DSGVO-konform.</li>
+                        <li>Face ID Schutz für die App</li>
                     </ul>
                 </div>
                 <div class="trust-box">
@@ -675,7 +738,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 14a1 1 0 1 1 1-1 1 1 0 0 1-1 1Zm1-4.28V12a1 1 0 0 1-2 0V11a4 4 0 1 1 4-4 1 1 0 0 1-2 0 2 2 0 1 0-2 2 1 1 0 0 1 1 1Z"/></svg>
                     </div>
                     <h3>Entwickelt für iOS 26</h3>
-                    <p>Eine echte, native App – kein Web-Wrapper.</p>
+                    <p>Kein Web-Wrapper. Eine echte, native App.</p>
                     <ul>
                         <li>Nahtlose Apple Health Integration</li>
                         <li>Modernes Liquid-Glass-Design</li>
@@ -689,7 +752,7 @@
 
     <!-- Final CTA -->
     <div class="final-cta">
-        <h2>Bereit, dranbleiben?</h2>
+        <h2>Starte deine private<br>Lauf-Challenge.</h2>
         <p>Lade deine Freunde ein und vergleiche das, was wirklich zählt.</p>
         <a href="https://apps.apple.com/app/id6780870501" class="cta-button">
             <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
@@ -703,9 +766,10 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <h4>Häschenlauf</h4>
-                    <a href="#problem">Warum</a>
-                    <a href="#solution">Wie</a>
-                    <a href="#crew">Crews</a>
+                    <a href="#problem">Problem</a>
+                    <a href="#solution">Lösung</a>
+                    <a href="#screenshots">App</a>
+                    <a href="#crews">Crews</a>
                     <a href="https://apps.apple.com/app/id6780870501">App Store</a>
                 </div>
                 <div class="footer-col">
@@ -726,57 +790,48 @@
     </footer>
 
     <script>
-        // Screenshot Carousel
-        const screenshotTrack = document.getElementById('screenshotTrack');
-        const screenshotDots = document.querySelectorAll('#screenshotNav .carousel-dot');
-        let currentScreenshot = 0;
-        const totalScreenshots = 4;
-
-        function updateScreenshotCarousel(index) {
-            screenshotTrack.style.transform = `translateX(-${index * 100}%)`;
-            screenshotDots.forEach((dot, i) => {
+        // Carousel Functionality
+        function moveCarousel(carouselId, direction) {
+            const carousel = document.getElementById(carouselId);
+            const track = carousel.querySelector('.carousel-track');
+            const slides = track.querySelectorAll('.carousel-slide');
+            const dots = carousel.querySelectorAll('.carousel-dot');
+            
+            let currentIndex = parseInt(track.dataset.currentIndex || 0);
+            currentIndex += direction;
+            
+            if (currentIndex < 0) currentIndex = slides.length - 1;
+            if (currentIndex >= slides.length) currentIndex = 0;
+            
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            track.dataset.currentIndex = currentIndex;
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+        
+        function goToSlide(carouselId, index) {
+            const carousel = document.getElementById(carouselId);
+            const track = carousel.querySelector('.carousel-track');
+            const dots = carousel.querySelectorAll('.carousel-dot');
+            
+            track.style.transform = `translateX(-${index * 100}%)`;
+            track.dataset.currentIndex = index;
+            
+            dots.forEach((dot, i) => {
                 dot.classList.toggle('active', i === index);
             });
-            currentScreenshot = index;
         }
-
-        screenshotDots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                updateScreenshotCarousel(parseInt(dot.dataset.slide));
-            });
-        });
-
-        // Auto-advance screenshots
+        
+        // Auto-rotate carousels every 5 seconds
         setInterval(() => {
-            currentScreenshot = (currentScreenshot + 1) % totalScreenshots;
-            updateScreenshotCarousel(currentScreenshot);
+            moveCarousel('screenshot-carousel', 1);
         }, 5000);
-
-        // Testimonial Carousel
-        const testimonialTrack = document.getElementById('testimonialTrack');
-        const testimonialDots = document.querySelectorAll('#testimonialNav .carousel-dot');
-        let currentTestimonial = 0;
-        const totalTestimonials = 3;
-
-        function updateTestimonialCarousel(index) {
-            testimonialTrack.style.transform = `translateX(-${index * 100}%)`;
-            testimonialDots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-            });
-            currentTestimonial = index;
-        }
-
-        testimonialDots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                updateTestimonialCarousel(parseInt(dot.dataset.slide));
-            });
-        });
-
-        // Auto-advance testimonials
+        
         setInterval(() => {
-            currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
-            updateTestimonialCarousel(currentTestimonial);
-        }, 7000);
+            moveCarousel('testimonial-carousel', 1);
+        }, 6000);
     </script>
 
 </body>
