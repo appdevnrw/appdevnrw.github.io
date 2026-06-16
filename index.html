@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Häschenlauf – Gemeinsam laufen. Privat bleiben.</title>
-    <meta name="description" content="Häschenlauf ist die Lauf-App für kleine Crews. Vergleiche Fortschritte und Trends, ohne Pace oder Herzfrequenz preiszugeben.">
+    <title>Häschenlauf – Du musst nicht die Schnellste sein. Nur dranbleiben.</title>
+    <meta name="description" content="Häschenlauf belohnt Fortschritt, nicht Tempo. Die Lauf-App, bei der Anfänger und Marathonläufer fair miteinander laufen können.">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Häschenlauf – Gemeinsam laufen. Privat bleiben.">
-    <meta property="og:description" content="Die private Lauf-App für kleine Crews. Vergleiche Fortschritte statt Trainingsdaten.">
+    <meta property="og:title" content="Häschenlauf – Du musst nicht die Schnellste sein. Nur dranbleiben.">
+    <meta property="og:description" content="Die Lauf-App gegen Vergleichsdruck. Private Crews, fairer Wettbewerb, keine Ranglisten.">
     <meta property="og:image" content="icon.png">
     <meta property="og:url" content="https://haeschenlauf.de">
     <meta property="og:type" content="website">
@@ -120,7 +120,6 @@
         }
         .hero-content { position: relative; }
         
-        /* Das Häschen als Held */
         .hero-icon {
             width: 140px; height: 140px; border-radius: 32px;
             margin: 0 auto 36px;
@@ -144,7 +143,7 @@
         .hero .tagline {
             font-size: clamp(18px, 2.5vw, 22px);
             color: var(--text-muted);
-            max-width: 620px; margin: 0 auto 42px;
+            max-width: 680px; margin: 0 auto 42px;
             line-height: 1.5;
         }
         .cta-button {
@@ -205,113 +204,209 @@
             padding: 12px 0;
             font-size: 16px;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 12px;
             border-bottom: 1px solid var(--border);
+            line-height: 1.5;
         }
         .comp-card li:last-child { border-bottom: none; }
-        .comp-card.bad li { color: var(--text-muted); text-decoration: line-through; }
+        .comp-card.bad li { color: var(--text-muted); }
+        .comp-card.bad li::before {
+            content: '✕';
+            color: var(--red);
+            font-weight: 800;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
         .comp-card.good li { color: var(--text); font-weight: 500; }
         .comp-card.good li::before {
             content: '✓';
             color: var(--green);
             font-weight: 800;
             font-size: 18px;
+            flex-shrink: 0;
         }
 
-        /* ── So funktioniert's (Trends) ── */
-        .trends-mockup {
-            max-width: 480px;
-            margin: 0 auto;
-            background: var(--surface);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
-            border-radius: 28px;
-            padding: 24px;
-            box-shadow: var(--shadow-lg);
-        }
-        .trend-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 18px 0;
-            border-bottom: 1px solid var(--border);
-        }
-        .trend-item:last-child { border-bottom: none; }
-        .trend-user {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-        .trend-avatar {
-            width: 44px; height: 44px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #FF9500, #FF3B30);
-            display: flex; align-items: center; justify-content: center;
-            color: white; font-weight: 700; font-size: 18px;
-        }
-        .trend-avatar.blue { background: linear-gradient(135deg, #007AFF, #5856D6); }
-        .trend-avatar.green { background: linear-gradient(135deg, #34C759, #30B0C7); }
-        .trend-name { font-weight: 600; font-size: 16px; }
-        
-        .trend-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 8px 16px;
-            border-radius: 980px;
-            font-weight: 700;
-            font-size: 15px;
-        }
-        .trend-pill.up { background: rgba(52, 199, 89, 0.15); color: var(--green); }
-        .trend-pill.down { background: rgba(255, 59, 48, 0.15); color: var(--red); }
-
-        /* ── Crews (Screenshots) ── */
-        .screenshots { position: relative; overflow: hidden; background: rgba(0, 122, 255, 0.02); }
-        .screenshot-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 32px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .screenshot-grid img {
-            width: 100%; border-radius: 24px;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--border);
-        }
-        @media (max-width: 700px) { .screenshot-grid { grid-template-columns: 1fr; } }
-
-        /* ── Deine Daten (Secondary Features) ── */
-        .secondary-features {
-            background: var(--surface-solid);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-        .features-grid {
+        /* ── Die Lösung (3 Feature Blocks) ── */
+        .solution-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
-        .feature-card {
-            background: var(--bg);
+        @media (max-width: 900px) { .solution-grid { grid-template-columns: 1fr; } }
+        
+        .solution-card {
+            background: var(--surface);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--border);
-            border-radius: 20px; padding: 28px;
+            border-radius: 24px;
+            padding: 32px;
+            text-align: center;
         }
-        .feature-icon {
-            width: 44px; height: 44px;
-            border-radius: 12px; margin-bottom: 14px;
+        .solution-icon {
+            width: 64px; height: 64px;
+            border-radius: 18px;
             background: rgba(0, 122, 255, 0.1);
             display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px;
         }
-        .feature-icon svg { width: 22px; height: 22px; color: var(--blue); }
-        .feature-card h3 { font-size: 17px; font-weight: 600; margin-bottom: 6px; }
-        .feature-card p { color: var(--text-muted); font-size: 14px; line-height: 1.55; }
+        .solution-icon svg { width: 32px; height: 32px; color: var(--blue); }
+        .solution-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .solution-card p { color: var(--text-muted); font-size: 15px; line-height: 1.55; }
 
-        @media (max-width: 900px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 520px) { .features-grid { grid-template-columns: 1fr; } }
+        /* ── Carousel (Screenshots & Testimonials) ── */
+        .carousel-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .carousel-slide {
+            min-width: 100%;
+            padding: 0 20px;
+        }
+        .carousel-slide img {
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+            display: block;
+            border-radius: 24px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+        }
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            margin-top: 32px;
+        }
+        .carousel-btn {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: var(--surface);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s;
+        }
+        .carousel-btn:hover { background: var(--blue); color: white; }
+        .carousel-btn svg { width: 20px; height: 20px; }
+        .carousel-dots {
+            display: flex;
+            gap: 8px;
+        }
+        .carousel-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: var(--border);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .carousel-dot.active {
+            background: var(--blue);
+            width: 24px;
+            border-radius: 4px;
+        }
 
-        /* ── Privacy & Apple (Trust) ── */
+        /* ── Testimonial Cards ── */
+        .testimonial-card {
+            background: var(--surface);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            padding: 48px;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .testimonial-card blockquote {
+            font-size: clamp(18px, 2.5vw, 22px);
+            font-weight: 500;
+            line-height: 1.6;
+            color: var(--text);
+            font-style: italic;
+            margin-bottom: 24px;
+        }
+        .testimonial-card cite {
+            font-style: normal;
+            color: var(--text-muted);
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        /* ── Crew GlassCard ── */
+        .crew-card {
+            background: var(--surface);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            padding: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: var(--shadow);
+        }
+        .crew-members {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+        .crew-member {
+            text-align: center;
+        }
+        .crew-avatar {
+            width: 72px; height: 72px;
+            border-radius: 50%;
+            margin: 0 auto 12px;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-weight: 700; font-size: 28px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+        .crew-avatar.felix { background: linear-gradient(135deg, #007AFF, #5856D6); }
+        .crew-avatar.paula { background: linear-gradient(135deg, #FF9500, #FF3B30); }
+        .crew-avatar.johann { background: linear-gradient(135deg, #34C759, #30B0C7); }
+        .crew-name { font-weight: 600; font-size: 16px; }
+        .crew-card p {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* ── Statement Section ── */
+        .statement-section {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .statement-section h2 {
+            font-size: clamp(32px, 5vw, 52px);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .statement-section p {
+            font-size: 20px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ── Trust (Privacy & Apple) ── */
         .trust-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -342,26 +437,6 @@
             display: flex; align-items: center; gap: 8px;
         }
         .trust-box li::before { content: '✓'; color: var(--green); font-weight: 800; }
-
-        /* ── Story ── */
-        .story-section {
-            text-align: center;
-            max-width: 680px;
-            margin: 0 auto;
-        }
-        .story-section blockquote {
-            font-size: clamp(22px, 3vw, 28px);
-            font-weight: 500;
-            line-height: 1.5;
-            color: var(--text);
-            font-style: italic;
-            margin-bottom: 24px;
-        }
-        .story-section cite {
-            font-style: normal;
-            color: var(--text-muted);
-            font-size: 16px;
-        }
 
         /* ── Final CTA ── */
         .final-cta {
@@ -424,10 +499,11 @@
                 Häschenlauf
             </a>
             <ul class="nav-links">
+                <li><a href="#problem">Problem</a></li>
+                <li><a href="#solution">Lösung</a></li>
+                <li><a href="#screenshots">App</a></li>
                 <li><a href="#crews">Crews</a></li>
-                <li><a href="#features">Für dich</a></li>
                 <li><a href="#privacy">Datenschutz</a></li>
-                <li><a href="#story">Story</a></li>
                 <li><a href="https://apps.apple.com/app/id6780870501">Download</a></li>
             </ul>
             <button class="menu-toggle" onclick="document.getElementById('mobile-menu').style.display = document.getElementById('mobile-menu').style.display === 'block' ? 'none' : 'block'" aria-label="Menü">
@@ -435,10 +511,11 @@
             </button>
         </div>
         <div id="mobile-menu" class="mobile-menu">
+            <a href="#problem" onclick="document.getElementById('mobile-menu').style.display='none'">Problem</a>
+            <a href="#solution" onclick="document.getElementById('mobile-menu').style.display='none'">Lösung</a>
+            <a href="#screenshots" onclick="document.getElementById('mobile-menu').style.display='none'">App</a>
             <a href="#crews" onclick="document.getElementById('mobile-menu').style.display='none'">Crews</a>
-            <a href="#features" onclick="document.getElementById('mobile-menu').style.display='none'">Für dich</a>
             <a href="#privacy" onclick="document.getElementById('mobile-menu').style.display='none'">Datenschutz</a>
-            <a href="#story" onclick="document.getElementById('mobile-menu').style.display='none'">Story</a>
             <a href="https://apps.apple.com/app/id6780870501">Download</a>
         </div>
     </nav>
@@ -447,8 +524,8 @@
     <header class="hero">
         <div class="container hero-content">
             <img src="icon.png" alt="Häschenlauf Häschen" class="hero-icon">
-            <h1>Vergleiche Fortschritte.<br>Nicht nur deine Pace.</h1>
-            <p class="tagline">Häschenlauf ist die App für kleine Lauf-Crews, die sich gegenseitig motivieren wollen – ohne sensible Trainingsdaten wie Pace oder Herzfrequenz für alle preiszugeben.</p>
+            <h1>Du musst nicht die Schnellste sein.<br>Nur dranbleiben.</h1>
+            <p class="tagline">Häschenlauf belohnt Fortschritt, nicht Tempo. Die Lauf-App, bei der Anfänger und Marathonläufer fair miteinander laufen können.</p>
             <a href="https://apps.apple.com/app/id6780870501" class="cta-button">
                 <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
                 Im App Store laden
@@ -459,104 +536,178 @@
     <!-- Das Problem -->
     <section id="problem">
         <div class="container">
-            <h2 class="section-title">Schluss mit dem Offenbarungsdruck</h2>
-            <p class="section-subtitle">Normale Lauf-Apps zwingen dich, alles zu zeigen. Häschenlauf schützt deine Privatsphäre und fokussiert sich auf das, was wirklich motiviert.</p>
+            <h2 class="section-title">Warum viele mit dem Laufen wieder aufhören</h2>
+            <p class="section-subtitle">Klassische Lauf-Apps zeigen dir ständig Menschen, die schneller, stärker oder ausdauernder sind. Das motiviert manche. Viele andere geben irgendwann auf.</p>
             
             <div class="comparison-grid">
                 <div class="comp-card bad">
-                    <h3>Typische Lauf-Apps</h3>
+                    <h3>Heute bei klassischen Lauf-Apps</h3>
                     <ul>
-                        <li>Exakte Pace & Herzfrequenz von allen</li>
-                        <li>Trainingsvolumen & Distanz</li>
-                        <li>Öffentliche Bestenlisten</li>
-                        <li>Druck & Vergleichsstress</li>
+                        <li>Anna läuft 12 km in 55 Minuten</li>
+                        <li>Tom läuft 5 km in 35 Minuten</li>
+                        <li>Tom fühlt sich langsam</li>
+                        <li>Tom verliert die Motivation</li>
                     </ul>
                 </div>
                 <div class="comp-card good">
-                    <h3>Häschenlauf</h3>
+                    <h3>Heute bei Häschenlauf</h3>
                     <ul>
-                        <li>Persönliche Trends & Crew-Entwicklungen</li>
-                        <li>Fortschritt statt Rohdaten</li>
-                        <li>Private Crews (2–20 Personen)</li>
-                        <li>Motivation ohne Scham</li>
+                        <li>Anna verbessert sich um 3%</li>
+                        <li>Tom verbessert sich um 12%</li>
+                        <li>Tom liegt vorne</li>
+                        <li>Beide feiern ihren Fortschritt</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- So funktioniert's -->
-    <section id="how-it-works">
+    <!-- Die Lösung -->
+    <section id="solution">
         <div class="container">
-            <h2 class="section-title">Fortschritt, den jeder sehen darf</h2>
-            <p class="section-subtitle">In deiner Crew sehen deine Freunde nicht, wie schnell du läufst – sondern ob du dich im Vergleich zur letzten Woche gesteigert hast.</p>
+            <h2 class="section-title">Dein einziger Gegner ist dein gestriges Ich</h2>
+            <p class="section-subtitle">Häschenlauf dreht das Prinzip um: Nicht die Bestzeiten zählen, sondern deine persönliche Entwicklung.</p>
             
-            <div class="trends-mockup">
-                <div class="trend-item">
-                    <div class="trend-user">
-                        <div class="trend-avatar">F</div>
-                        <span class="trend-name">Felix</span>
-                    </div>
-                    <div class="trend-pill up">+12% ↑</div>
-                </div>
-                <div class="trend-item">
-                    <div class="trend-user">
-                        <div class="trend-avatar green">P</div>
-                        <span class="trend-name">Paula</span>
-                    </div>
-                    <div class="trend-pill up">+4% ↑</div>
-                </div>
-                <div class="trend-item">
-                    <div class="trend-user">
-                        <div class="trend-avatar blue">J</div>
-                        <span class="trend-name">Johann</span>
-                    </div>
-                    <div class="trend-pill down">-2% ↓</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Crews & Challenges -->
-    <section id="crews" class="screenshots">
-        <div class="container">
-            <h2 class="section-title">Deine Crew. Deine Challenges.</h2>
-            <p class="section-subtitle">Gründe private Gruppen, starte Wettbewerbe und feiert gemeinsam eure Entwicklungen – ganz ohne Leistungsdruck.</p>
-            <div class="screenshot-grid">
-                <img src="screenshot-dashboard.png" alt="Häschenlauf Dashboard mit Wochenringen und Statistiken">
-                <img src="screenshot-run-detail.png" alt="Detaillierte Auswertung eines Laufs mit Karte und HealthKit-Daten">
-                <img src="screenshot-crew.png" alt="Häschenlauf Crew-Ansicht mit Mitgliedern und Bestenlisten">
-                <img src="screenshot-challenges.png" alt="Gamification, Achievements und Challenges in der App">
-            </div>
-        </div>
-    </section>
-
-    <!-- Deine persönlichen Daten (Sekundär) -->
-    <section id="features" class="secondary-features">
-        <div class="container">
-            <h2 class="section-title">Dein privates Archiv</h2>
-            <p class="section-subtitle">Alle klassischen Tracking-Features, die du brauchst – aber nur für dich allein. Deine Crew sieht davon nichts.</p>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                    </div>
-                    <h3>HealthKit-Sync</h3>
-                    <p>Puls, Pace, Watt – alles automatisch aus Apple Health.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
-                    </div>
-                    <h3>Wetter-Tracking</h3>
-                    <p>Temperatur und Wind pro Training. Sieh, wie Wetter dich beeinflusst.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
+            <div class="solution-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
                     </div>
-                    <h3>Detaillierte Stats</h3>
-                    <p>HR-Zonen, Pacing-Konsistenz und persönliche Rekorde.</p>
+                    <h3>Fortschritt statt Pace</h3>
+                    <p>Nicht die Schnellsten gewinnen. Diejenigen, die sich am meisten verbessern.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>
+                    </div>
+                    <h3>Streaks statt Ranglisten</h3>
+                    <p>Wer dranbleibt, gewinnt. Kontinuität schlägt Geschwindigkeit.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    </div>
+                    <h3>Ziele statt Likes</h3>
+                    <p>Keine Kommentare. Keine Kudos. Nur dein persönlicher Fortschritt.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Carousel -->
+    <section id="screenshots">
+        <div class="container">
+            <h2 class="section-title">So sieht's aus</h2>
+            <p class="section-subtitle">Öffne die App. Sieh deinen Fortschritt. Leg das Handy weg.</p>
+            
+            <div class="carousel-container" id="screenshot-carousel">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="screenshot-dashboard.png" alt="Häschenlauf Dashboard mit Wochenringen und Statistiken">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshot-run-detail.png" alt="Detaillierte Auswertung eines Laufs mit Karte und HealthKit-Daten">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshot-crew.png" alt="Häschenlauf Crew-Ansicht mit Mitgliedern und Bestenlisten">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="screenshot-challenges.png" alt="Gamification, Achievements und Challenges in der App">
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn" onclick="moveCarousel('screenshot-carousel', -1)" aria-label="Vorheriges Bild">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                    </button>
+                    <div class="carousel-dots">
+                        <div class="carousel-dot active" onclick="goToSlide('screenshot-carousel', 0)"></div>
+                        <div class="carousel-dot" onclick="goToSlide('screenshot-carousel', 1)"></div>
+                        <div class="carousel-dot" onclick="goToSlide('screenshot-carousel', 2)"></div>
+                        <div class="carousel-dot" onclick="goToSlide('screenshot-carousel', 3)"></div>
+                    </div>
+                    <button class="carousel-btn" onclick="moveCarousel('screenshot-carousel', 1)" aria-label="Nächstes Bild">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Crews -->
+    <section id="crews">
+        <div class="container">
+            <h2 class="section-title">Lauf mit deinen Leuten</h2>
+            <p class="section-subtitle">Private Crews. Keine Öffentlichkeit. Keine Fremden. Nur die Menschen, mit denen du tatsächlich laufen möchtest.</p>
+            
+            <div class="crew-card">
+                <div class="crew-members">
+                    <div class="crew-member">
+                        <div class="crew-avatar felix">F</div>
+                        <div class="crew-name">Felix</div>
+                    </div>
+                    <div class="crew-member">
+                        <div class="crew-avatar paula">P</div>
+                        <div class="crew-name">Paula</div>
+                    </div>
+                    <div class="crew-member">
+                        <div class="crew-avatar johann">J</div>
+                        <div class="crew-name">Johann</div>
+                    </div>
+                </div>
+                <p>Gründe private Gruppen für dich und deine Freunde. Startet Challenges, vergleicht eure Fortschritte und feiert gemeinsam eure Erfolge – ganz ohne Leistungsdruck.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kein Feed Statement -->
+    <section>
+        <div class="container">
+            <div class="statement-section">
+                <h2>Kein Feed. Kein Scrollen.<br>Kein Leistungsdruck.</h2>
+                <p>Häschenlauf ist keine Social-Media-App. Wir wollen, dass du laufen gehst – nicht scrollen.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Carousel -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Was unsere Tester sagen</h2>
+            <p class="section-subtitle">Echte Stimmen aus der Beta-Phase</p>
+            
+            <div class="carousel-container" id="testimonial-carousel">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <div class="testimonial-card">
+                            <blockquote>„Häschenlauf entstand aus einer kleinen Lauf-Crew, die sich einfach nur motivieren wollte – ohne sich für langsame Pace oder hohe Herzfrequenz rechtfertigen zu müssen."</blockquote>
+                            <cite>— Felix Bischoff, Gründer von Häschenlauf</cite>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="testimonial-card">
+                            <blockquote>„Ich bin ehrgeizig, aber bei klassischen Lauf-Apps hatte ich gegen meine schnellen Freunde oft keine Chance. Bei Häschenlauf kann ich endlich fair mit ihnen konkurrieren, weil es um prozentuale Verbesserung geht, nicht um die absolute Pace. Das macht den Wettbewerb für mich erst wieder richtig spannend."</blockquote>
+                            <cite>— Paula, Beta-Testerin</cite>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="testimonial-card">
+                            <blockquote>„Am Anfang habe ich mich in anderen Apps immer nur als ‚der Langsame' gefühlt. Häschenlauf hat das für mich geändert: Ich sehe jetzt in den Statistiken meinen eigenen Fortschritt. Es ist ein unglaublich motivierendes Gefühl, wenn die App mir bestätigt, dass ich mich verbessert habe – ganz egal, was die anderen machen."</blockquote>
+                            <cite>— Johann, Laufanfänger & Tester</cite>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn" onclick="moveCarousel('testimonial-carousel', -1)" aria-label="Vorheriges Testimonial">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                    </button>
+                    <div class="carousel-dots">
+                        <div class="carousel-dot active" onclick="goToSlide('testimonial-carousel', 0)"></div>
+                        <div class="carousel-dot" onclick="goToSlide('testimonial-carousel', 1)"></div>
+                        <div class="carousel-dot" onclick="goToSlide('testimonial-carousel', 2)"></div>
+                    </div>
+                    <button class="carousel-btn" onclick="moveCarousel('testimonial-carousel', 1)" aria-label="Nächstes Testimonial">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                    </button>
                 </div>
             </div>
         </div>
@@ -565,7 +716,7 @@
     <!-- Trust (Privacy & Apple) -->
     <section id="privacy">
         <div class="container">
-            <h2 class="section-title">Vertrauen durch Transparenz</h2>
+            <h2 class="section-title">Privatsphäre & Vertrauen</h2>
             <p class="section-subtitle">Entwickelt für Apple-Nutzer, die Wert auf ihre Daten legen.</p>
             
             <div class="trust-grid">
@@ -599,16 +750,6 @@
         </div>
     </section>
 
-    <!-- Story -->
-    <section id="story">
-        <div class="container">
-            <div class="story-section">
-                <blockquote>„Häschenlauf entstand aus einer kleinen Lauf-Crew, die sich einfach nur motivieren wollte – ohne sich für langsame Pace oder hohe Herzfrequenz rechtfertigen zu müssen.“</blockquote>
-                <cite>— Felix Bischoff, Gründer von Häschenlauf</cite>
-            </div>
-        </div>
-    </section>
-
     <!-- Final CTA -->
     <div class="final-cta">
         <h2>Starte deine private<br>Lauf-Challenge.</h2>
@@ -625,8 +766,10 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <h4>Häschenlauf</h4>
+                    <a href="#problem">Problem</a>
+                    <a href="#solution">Lösung</a>
+                    <a href="#screenshots">App</a>
                     <a href="#crews">Crews</a>
-                    <a href="#features">Für dich</a>
                     <a href="https://apps.apple.com/app/id6780870501">App Store</a>
                 </div>
                 <div class="footer-col">
@@ -645,6 +788,51 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Carousel Functionality
+        function moveCarousel(carouselId, direction) {
+            const carousel = document.getElementById(carouselId);
+            const track = carousel.querySelector('.carousel-track');
+            const slides = track.querySelectorAll('.carousel-slide');
+            const dots = carousel.querySelectorAll('.carousel-dot');
+            
+            let currentIndex = parseInt(track.dataset.currentIndex || 0);
+            currentIndex += direction;
+            
+            if (currentIndex < 0) currentIndex = slides.length - 1;
+            if (currentIndex >= slides.length) currentIndex = 0;
+            
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            track.dataset.currentIndex = currentIndex;
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+        
+        function goToSlide(carouselId, index) {
+            const carousel = document.getElementById(carouselId);
+            const track = carousel.querySelector('.carousel-track');
+            const dots = carousel.querySelectorAll('.carousel-dot');
+            
+            track.style.transform = `translateX(-${index * 100}%)`;
+            track.dataset.currentIndex = index;
+            
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+        
+        // Auto-rotate carousels every 5 seconds
+        setInterval(() => {
+            moveCarousel('screenshot-carousel', 1);
+        }, 5000);
+        
+        setInterval(() => {
+            moveCarousel('testimonial-carousel', 1);
+        }, 6000);
+    </script>
 
 </body>
 </html>
