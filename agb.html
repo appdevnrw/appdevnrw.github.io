@@ -1,5 +1,3 @@
----
----
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -31,16 +29,37 @@
             background: var(--bg); color: var(--text);
             line-height: 1.7; -webkit-font-smoothing: antialiased;
         }
-        .page {
-            max-width: 680px; margin: 0 auto;
-            padding: 60px 24px 0; /* Padding unten entfernt für Footer-Anschluss */
+        .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+        
+        /* Nav */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: var(--surface);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--border);
         }
-        .back {
-            display: inline-flex; align-items: center; gap: 6px;
-            margin-bottom: 32px; text-decoration: none;
-            color: var(--blue); font-size: 15px; font-weight: 500;
+        .nav-inner {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 14px 24px; max-width: 1120px; margin: 0 auto;
         }
-        .back svg { width: 16px; height: 16px; }
+        .nav-logo {
+            display: flex; align-items: center; gap: 10px;
+            font-weight: 700; font-size: 18px; color: var(--text); text-decoration: none;
+        }
+        .nav-logo img { width: 32px; height: 32px; border-radius: 8px; }
+        .nav-links { display: flex; gap: 28px; list-style: none; }
+        .nav-links a { color: var(--text); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--blue); }
+        .menu-toggle { display: none; background: none; border: none; color: var(--text); cursor: pointer; padding: 8px; }
+        .menu-toggle svg { width: 22px; height: 22px; }
+        .mobile-menu { display: none; padding: 8px 24px 20px; border-top: 1px solid var(--border); }
+        .mobile-menu a { display: block; padding: 12px 0; color: var(--text); text-decoration: none; font-size: 16px; font-weight: 500; border-bottom: 1px solid var(--border); }
+        .mobile-menu a:last-child { border-bottom: none; }
+        @media (max-width: 640px) { .nav-links { display: none; } .menu-toggle { display: block; } }
+
+        /* Content */
+        .page { max-width: 680px; margin: 0 auto; padding: 120px 24px 60px; }
         h1 { font-size: 32px; font-weight: 700; margin-bottom: 28px; letter-spacing: -0.02em; }
         h2 { font-size: 18px; font-weight: 600; margin: 28px 0 10px; }
         p { color: var(--text-muted); font-size: 15px; margin-bottom: 10px; }
@@ -48,25 +67,85 @@
         a { color: var(--blue); text-decoration: none; }
         a:hover { text-decoration: underline; }
 
-        /* ── Footer (Design von Startseite) ── */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 40px 0 28px; margin-top: 48px;
-        }
-        .footer-inner {
-            max-width: 680px; margin: 0 auto; padding: 0 24px;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px; margin-bottom: 28px;
-        }
-        .footer-col h4 {
-            font-size: 12px; font-weight: 600;
-            color: var(--text-muted); text-transform: uppercase;
-            letter-spacing: 0.06em; margin-bottom: 10px;
-        }
-        .footer-col a {
+        /* Footer */
+        footer { border-top: 1px solid var(--border); padding: 40px 0 28px; margin-top: 48px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-bottom: 28px; }
+        .footer-col h4 { font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; }
+        .footer-col a { display: block; color: var(--text); text-decoration: none; font-size: 14px; margin-bottom: 7px; transition: color 0.2s; }
+        .footer-col a:hover { color: var(--blue); }
+        .footer-bottom { border-top: 1px solid var(--border); padding-top: 20px; text-align: center; color: var(--text-muted); font-size: 13px; }
+        @media (max-width: 520px) { .footer-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img src="icon.png" alt="Hasilauf">
+                Hasilauf
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#crews">Crews</a></li>
+                <li><a href="index.html#features">Für dich</a></li>
+                <li><a href="index.html#privacy">Datenschutz</a></li>
+                <li><a href="index.html#story">Story</a></li>
+                <li><a href="https://apps.apple.com/app/id0000000000">Download</a></li>
+            </ul>
+            <button class="menu-toggle" onclick="document.getElementById('mobile-menu').style.display = document.getElementById('mobile-menu').style.display === 'block' ? 'none' : 'block'" aria-label="Menü">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="mobile-menu">
+            <a href="index.html#crews" onclick="document.getElementById('mobile-menu').style.display='none'">Crews</a>
+            <a href="index.html#features" onclick="document.getElementById('mobile-menu').style.display='none'">Für dich</a>
+            <a href="index.html#privacy" onclick="document.getElementById('mobile-menu').style.display='none'">Datenschutz</a>
+            <a href="index.html#story" onclick="document.getElementById('mobile-menu').style.display='none'">Story</a>
+            <a href="https://apps.apple.com/app/id0000000000">Download</a>
+        </div>
+    </nav>
+
+    <div class="page">
+        <h1>Allgemeine Geschäftsbedingungen</h1>
+        <p><strong>Stand: Juni 2026 (Platzhalter)</strong></p>
+        <p>Diese AGB werden vor dem offiziellen Launch der App finalisiert.</p>
+
+        <h2>1. Geltungsbereich</h2>
+        <p>Diese AGB gelten für die Nutzung der iOS-App Hasilauf.</p>
+
+        <h2>2. Leistungsbeschreibung</h2>
+        <p>Hasilauf ist eine Lauf-Tracking-App für iOS, die Trainingsdaten aus Apple Health synchronisiert und in einer persönlichen Statistik aufbereitet. Der Fokus liegt auf privatem Crew-Vergleich durch relative Trends.</p>
+
+        <h2>3. Haftung</h2>
+        <p>Die App dient ausschließlich zu Informations- und Motivationszwecken. Sie ersetzt keine medizinische Beratung.</p>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Hasilauf</h4>
+                    <a href="index.html#crews">Crews</a>
+                    <a href="index.html#features">Für dich</a>
+                    <a href="https://apps.apple.com/app/id0000000000">App Store</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Rechtliches</h4>
+                    <a href="impressum.html">Impressum</a>
+                    <a href="datenschutz.html">Datenschutz</a>
+                    <a href="agb.html">AGB</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <a href="mailto:support@hasilauf.nrw">support@hasilauf.nrw</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Felix &middot; Hasilauf &middot; Alle Rechte vorbehalten
+            </div>
+        </div>
+    </footer>
+</body>
+</html>        .footer-col a {
             display: block; color: var(--text); text-decoration: none;
             font-size: 14px; margin-bottom: 7px;
             transition: color 0.2s;
