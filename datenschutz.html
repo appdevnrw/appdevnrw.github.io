@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Datenschutz – Hasilauf</title>
+    <title>Datenschutz – Häschenlauf</title>
     <link rel="icon" type="image/png" href="icon.png">
     <style>
         :root {
@@ -59,15 +59,51 @@
         @media (max-width: 640px) { .nav-links { display: none; } .menu-toggle { display: block; } }
 
         /* Content */
-        .page { max-width: 680px; margin: 0 auto; padding: 120px 24px 60px; }
+        .page { max-width: 760px; margin: 0 auto; padding: 120px 24px 60px; }
         h1 { font-size: 32px; font-weight: 700; margin-bottom: 28px; letter-spacing: -0.02em; }
-        h2 { font-size: 18px; font-weight: 600; margin: 28px 0 10px; }
-        p { color: var(--text-muted); font-size: 15px; margin-bottom: 10px; }
+        h2 { font-size: 22px; font-weight: 600; margin: 36px 0 14px; color: var(--text); }
+        h3 { font-size: 17px; font-weight: 600; margin: 22px 0 10px; color: var(--text); }
+        p { color: var(--text-muted); font-size: 15px; margin-bottom: 12px; }
         p strong { color: var(--text); }
         a { color: var(--blue); text-decoration: none; }
         a:hover { text-decoration: underline; }
-        ul { color: var(--text-muted); font-size: 15px; margin: 8px 0 10px 20px; }
-        li { margin-bottom: 4px; }
+        ul, ol { color: var(--text-muted); font-size: 15px; margin: 8px 0 14px 22px; }
+        li { margin-bottom: 6px; }
+        em { color: var(--text); font-style: italic; }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 14px 0 18px;
+            font-size: 14px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 12px 14px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        th {
+            background: rgba(0, 122, 255, 0.05);
+            font-weight: 600;
+            color: var(--text);
+            font-size: 13px;
+        }
+        td { color: var(--text-muted); }
+        tr:last-child td { border-bottom: none; }
+
+        .info-box {
+            background: rgba(0, 122, 255, 0.06);
+            border-left: 3px solid var(--blue);
+            padding: 14px 18px;
+            border-radius: 8px;
+            margin: 14px 0;
+            font-size: 14px;
+            color: var(--text);
+        }
 
         /* Footer */
         footer { border-top: 1px solid var(--border); padding: 40px 0 28px; margin-top: 48px; }
@@ -76,22 +112,26 @@
         .footer-col a { display: block; color: var(--text); text-decoration: none; font-size: 14px; margin-bottom: 7px; transition: color 0.2s; }
         .footer-col a:hover { color: var(--blue); }
         .footer-bottom { border-top: 1px solid var(--border); padding-top: 20px; text-align: center; color: var(--text-muted); font-size: 13px; }
-        @media (max-width: 520px) { .footer-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 520px) { 
+            .footer-grid { grid-template-columns: 1fr; } 
+            table { font-size: 13px; }
+            th, td { padding: 10px; }
+        }
     </style>
 </head>
 <body>
     <nav>
         <div class="nav-inner">
             <a href="index.html" class="nav-logo">
-                <img src="icon.png" alt="Hasilauf">
-                Hasilauf
+                <img src="icon.png" alt="Häschenlauf">
+                Häschenlauf
             </a>
             <ul class="nav-links">
                 <li><a href="index.html#crews">Crews</a></li>
                 <li><a href="index.html#features">Für dich</a></li>
                 <li><a href="index.html#privacy">Datenschutz</a></li>
                 <li><a href="index.html#story">Story</a></li>
-                <li><a href="https://apps.apple.com/app/id0000000000">Download</a></li>
+                <li><a href="https://apps.apple.com/app/id6780870501">Download</a></li>
             </ul>
             <button class="menu-toggle" onclick="document.getElementById('mobile-menu').style.display = document.getElementById('mobile-menu').style.display === 'block' ? 'none' : 'block'" aria-label="Menü">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -102,48 +142,250 @@
             <a href="index.html#features" onclick="document.getElementById('mobile-menu').style.display='none'">Für dich</a>
             <a href="index.html#privacy" onclick="document.getElementById('mobile-menu').style.display='none'">Datenschutz</a>
             <a href="index.html#story" onclick="document.getElementById('mobile-menu').style.display='none'">Story</a>
-            <a href="https://apps.apple.com/app/id0000000000">Download</a>
+            <a href="https://apps.apple.com/app/id6780870501">Download</a>
         </div>
     </nav>
 
     <div class="page">
-        <h1>Datenschutzerklärung</h1>
-        <p><strong>Stand: Juni 2026 (Platzhalter)</strong></p>
-        <p>Diese Datenschutzerklärung wird vor dem offiziellen Launch der App finalisiert und an die Anforderungen der DSGVO sowie der Apple App Store Review Guidelines angepasst.</p>
-        
-        <p><em>Hinweis zum Konzept: Hasilauf praktiziert aktive Datenminimierung. Indem wir in Crews nur relative Fortschritte (Trends) statt absoluter Leistungsdaten (Pace, Puls) teilen, schützen wir deine Privatsphäre schon auf konzeptioneller Ebene.</em></p>
+        <h1>Datenschutzerklärung für Häschenlauf</h1>
+        <p><strong>Stand: 09.06.2026</strong></p>
 
-        <h2>1. Verantwortlicher</h2>
+        <h2>Impressum &amp; Verantwortlicher</h2>
+        <p><strong>Verantwortlicher im Sinne der DSGVO und des DDG:</strong></p>
         <p>
-            Felix<br>
-            Teststraße 1<br>
-            12345 Teststadt<br>
-            E-Mail: <a href="mailto:support@hasilauf.nrw">support@hasilauf.nrw</a>
+            Felix Bischoff<br>
+            Liebigstraße 15<br>
+            45479 Mülheim an der Ruhr<br>
+            E-Mail: <a href="mailto:haeschenlauf@icloud.com">haeschenlauf@icloud.com</a>
         </p>
 
-        <h2>2. Welche Daten verarbeitet werden</h2>
-        <p>Hasilauf verarbeitet ausschließlich Daten, die für den Betrieb der App notwendig sind:</p>
+        <h2>1. Überblick</h2>
+        <p>Häschenlauf ist eine kostenfreie iOS-Lauf-App zur Aufzeichnung und Analyse deiner Trainings. Der Schutz deiner personenbezogenen Daten, insbesondere deiner Gesundheitsdaten, hat für uns höchste Priorität.</p>
+        <p>Diese Datenschutzerklärung erklärt:</p>
         <ul>
-            <li>E-Mail-Adresse (zur Kontoerstellung)</li>
-            <li>Trainingsdaten aus Apple Health (nur mit ausdrücklicher Einwilligung)</li>
-            <li>Profilinformationen (Name, Avatar)</li>
+            <li>Welche Daten wir erheben und warum</li>
+            <li>Wie wir deine Daten verarbeiten und schützen</li>
+            <li>Welche Rechte du hast</li>
+        </ul>
+        <div class="info-box"><strong>Datensparsamkeit als Prinzip:</strong> Wir erheben nur die Daten, die für die Kernfunktionen der App zwingend erforderlich sind. Gesundheitsdaten werden ausschließlich mit deiner ausdrücklichen Einwilligung verarbeitet.</div>
+
+        <h2>2. Welche Daten verarbeiten wir?</h2>
+
+        <h3>2.1 Account-Daten (Pflichtangaben)</h3>
+        <table>
+            <thead><tr><th>Daten</th><th>Zweck</th></tr></thead>
+            <tbody>
+                <tr><td>E-Mail-Adresse</td><td>Registrierung, Login, Passwort-Zurücksetzen</td></tr>
+                <tr><td>Passwort</td><td>Geschützt durch bcrypt-Verschlüsselung (wird nur gehasht gespeichert)</td></tr>
+                <tr><td>Anzeigename (Spitzname)</td><td>Dein Nutzerprofil in der App</td></tr>
+            </tbody>
+        </table>
+        <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)</p>
+
+        <h3>2.2 Profil-Daten (freiwillig)</h3>
+        <table>
+            <thead><tr><th>Daten</th><th>Zweck</th></tr></thead>
+            <tbody>
+                <tr><td>Emoji</td><td>Persönliches Profil-Emoji (Unicode-Schriftzeichen)</td></tr>
+                <tr><td>Avatar (Bild)</td><td>Profilbild in der App</td></tr>
+                <tr><td>Maximale Herzfrequenz</td><td>Berechnung deiner Herzfrequenz-Zonen</td></tr>
+                <tr><td>Wochenziele (z. B. Kilometer, Minuten)</td><td>Persönliche Zielsetzung und Motivation</td></tr>
+            </tbody>
+        </table>
+        <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Anzeigename, Emoji, Wochenziele); Art. 6 Abs. 1 lit. a DSGVO (Avatar – freiwillige Einwilligung im Onboarding); Art. 9 Abs. 2 lit. a DSGVO (maximale Herzfrequenz – ausdrückliche Einwilligung)</p>
+
+        <h3>2.3 Trainings- und Gesundheitsdaten (nur mit ausdrücklicher Einwilligung)</h3>
+        <p>Diese Daten werden nur erfasst, wenn du im Onboarding aktiv zustimmst (separater Einwilligungs-Schritt):</p>
+        <p><strong>Erfasste Daten:</strong></p>
+        <ul>
+            <li>Herzfrequenz (Durchschnitt, Minimum, Maximum, Ruhepuls, Herzfrequenz-Zonen, Herzfrequenz-Erholung)</li>
+            <li>Trainingsdauer, -distanz, -pace und -typ</li>
+            <li>Laufleistung (Kadenz, Schrittlänge, Bodenkontaktzeit, vertikale Oszillation, Leistung in Watt)</li>
+            <li>GPS-Startkoordinate deines Trainings</li>
+            <li>Zurückgelegte Höhenmeter</li>
+            <li>Energieverbrauch (Kalorien)</li>
+        </ul>
+        <p><strong>GPS-Route – Datenminimierung:</strong><br>
+        Die vollständige GPS-Route wird ausschließlich temporär auf deinem Gerät für die Berechnung des Höhenprofils und zur Wetterabfrage verarbeitet. Nur die Startkoordinate wird dauerhaft in unserer Datenbank gespeichert.</p>
+        <p><strong>HealthKit-Zugriff:</strong> Die App greift ausschließlich lesend auf HealthKit zu. Es werden keine Daten in Apple Health zurückgeschrieben. Eine Hintergrundaktualisierung (z. B. nach einem abgeschlossenen Training) erfolgt über den iOS-Hintergrunddienst HKObserverQuery.</p>
+        <p><strong>Rechtsgrundlage:</strong> Art. 9 Abs. 2 lit. a DSGVO (ausdrückliche Einwilligung für Gesundheitsdaten)</p>
+
+        <h3>2.4 Wetterdaten (automatisch bei Trainings)</h3>
+        <p>Wenn du Gesundheitsdaten freigibst, werden automatisch Wetterdaten (Temperatur, Luftfeuchtigkeit, Wind) für den Startort deines Trainings über Apple WeatherKit abgerufen.</p>
+        <p><strong>Rechtsgrundlage:</strong> Art. 9 Abs. 2 lit. a DSGVO (als technisches Nebenprodukt der GPS-Startkoordinate aus der HealthKit-Einwilligung)</p>
+
+        <h3>2.5 Crew-Daten (nur mit deiner Einwilligung)</h3>
+        <p>Wenn du einer Crew (Laufgruppe) beitrittst und der Datenfreigabe zustimmst, können andere Crew-Mitglieder folgende Informationen über dich sehen:</p>
+        <p><strong>Deine persönlichen Daten (in der Mitgliederliste):</strong></p>
+        <ul>
+            <li>Prozentuale Veränderungen deiner Leistung im Vergleich zu deinem 4-Wochen-Durchschnitt (z. B. "+12% schneller")</li>
+            <li>Deine zurückgelegten Kilometer in der aktuellen Kalenderwoche</li>
+            <li>Anzahl deiner Trainings in der aktuellen Kalenderwoche</li>
+            <li>Deine aktuelle Laufserie (in Wochen)</li>
+        </ul>
+        <p><strong>Aggregierte Crew-Summen (in der Wochenübersicht):</strong></p>
+        <ul>
+            <li>Gesamtkilometer aller Crew-Mitglieder in der aktuellen Woche</li>
+            <li>Gesamtanzahl aller Trainings der Crew</li>
+        </ul>
+        <p><strong>Was NICHT geteilt wird:</strong><br>
+        Sensible Leistungsdaten wie deine genaue Herzfrequenz, Pace, Watt oder Kadenz bleiben privat. Diese Daten werden durch Privacy-by-Design-Maßnahmen im Code technisch ausgeschlossen.</p>
+        <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (separate Einwilligung)</p>
+
+        <h3>2.6 Gamification (Erfolge, Level, Bestleistungen)</h3>
+        <p>Die App nutzt Gamification-Elemente wie Erfolge, Level und Bestleistungen zur Motivation. Diese basieren auf einfachen Schwellenwerten (z. B. "10 Trainings abgeschlossen = Achievement 'Ausdauer'").</p>
+        <p><strong>Automatisiertes Profiling zur Spielführung:</strong><br>
+        Die App wertet dein Trainingsverhalten automatisiert aus (z. B. "10 Läufe in einer Woche" oder "neue Bestleistung"), um Erfolge und Level freizuschalten. Dies stellt ein einfaches Profiling dar. Es findet jedoch keine automatisierte Entscheidungsfindung mit rechtlicher Wirkung oder ähnlicher erheblicher Beeinträchtigung im Sinne von Art. 22 DSGVO statt.</p>
+        <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an Nutzermotivation)</p>
+
+        <h3>2.7 Geräte-Informationen (bei Einwilligungserfassung)</h3>
+        <p>Bei der Einwilligungserfassung speichern wir technische Informationen (Gerätemodell, iOS-Version, Spracheinstellung), um die Einwilligung rechtssicher nachvollziehen zu können.</p>
+        <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. c DSGVO (rechtliche Nachweispflicht nach Art. 7 Abs. 1 DSGVO)</p>
+
+        <h3>2.8 Lokale Datenspeicherung (auf deinem Gerät)</h3>
+        <p>Folgende Daten werden ausschließlich lokal auf deinem Gerät gespeichert und nicht an unsere Server übermittelt:</p>
+        <table>
+            <thead><tr><th>Daten</th><th>Speicherort</th><th>Zweck</th></tr></thead>
+            <tbody>
+                <tr><td>E-Mail-Adresse</td><td>iOS Keychain (verschlüsselt)</td><td>Login-Komfort</td></tr>
+                <tr><td>Nutzerprofil (zwischengespeichert)</td><td>iOS Keychain (verschlüsselt)</td><td>Offline-Fallback</td></tr>
+                <tr><td>Formulardaten (Entwürfe)</td><td>App-eigener Ordner (geräteverschlüsselt)</td><td>Offline-Eingabe</td></tr>
+                <tr><td>Sync-Queue (ausstehende Trainings)</td><td>UserDefaults</td><td>Temporäre Pufferung bei fehlender Internetverbindung</td></tr>
+                <tr><td>Consent-Status-Mirror (Gesundheitsdaten, Crew)</td><td>UserDefaults</td><td>Offline-Prüfung des Einwilligungsstatus</td></tr>
+                <tr><td>Idempotenz-Cache</td><td>UserDefaults</td><td>Schutz vor doppelten Sync-Vorgängen bei Offline-Nutzung</td></tr>
+                <tr><td>App-Einstellungen (Theme, Einheiten, Sync-Präferenzen)</td><td>UserDefaults</td><td>Personalisierung</td></tr>
+            </tbody>
+        </table>
+        <p><strong>Rechtsgrundlage für lokale Speicherung:</strong> § 25 Abs. 2 Nr. 2 TDDDG (technisch zwingend erforderlich für Kernfunktionen: Login, Offline-Sync, Einstellungen) sowie Art. 6 Abs. 1 lit. b, f DSGVO.</p>
+        <p><em>Keine Tracking-SDKs: Es werden keine Tracking- oder Marketing-SDKs Dritter auf deinem Gerät gespeichert.</em></p>
+        <p>Die lokalen Daten werden bei einer Kontolöschung vollständig entfernt.</p>
+
+        <h3>2.9 Pausen-Logs (Trainingspausen)</h3>
+        <p>Wenn du in der App eine Trainingspause einträgst, speichern wir Start- und Endzeitpunkt sowie eine optionale Notiz. Dies dient der korrekten Berechnung deiner Laufserie (Streak) und der fairen Aussetzung von Wochenzielen.</p>
+        <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)</p>
+
+        <h2>3. Welche Daten erheben wir nicht?</h2>
+        <p>Häschenlauf erhebt bewusst keine der folgenden Daten:</p>
+        <ul>
+            <li>❌ Vollständiger Name / Nachname</li>
+            <li>❌ Telefonnummer</li>
+            <li>❌ Postanschrift</li>
+            <li>❌ Zahlungsinformationen (die App ist kostenfrei)</li>
+            <li>❌ Werbe-ID (IDFA) – kein Tracking</li>
+            <li>❌ Browser-Verlauf oder Surfverhalten</li>
+            <li>❌ Bewegungsprofile (nur Startkoordinate, keine vollständigen Routen)</li>
         </ul>
 
-        <h2>3. Kein Tracking</h2>
-        <p>Hasilauf verwendet keine Tracker, keine Werbung und keine Drittanbieter-SDKs zur Analyse des Nutzerverhaltens.</p>
+        <h2>4. Wie werden die Daten verarbeitet?</h2>
 
-        <h2>4. Deine Rechte</h2>
-        <p>Du kannst deine Daten jederzeit in der App exportieren (JSON) und dein Konto vollständig löschen.</p>
+        <h3>4.1 Serverstandort &amp; Sicherheit</h3>
+        <p>Die Daten werden auf sicheren Servern in der Europäischen Union (Frankfurt, Deutschland) bei Supabase Inc. gespeichert. Der Zugriff erfolgt ausschließlich über verschlüsselte Verbindungen (HTTPS/TLS).</p>
+        <p>Gesundheitsdaten werden ausschließlich innerhalb der EU gespeichert.</p>
+
+        <h3>4.2 Hauptauftragsverarbeiter</h3>
+        <table>
+            <thead><tr><th>Anbieter</th><th>Dienst</th><th>Standort</th></tr></thead>
+            <tbody>
+                <tr><td>Supabase Inc.</td><td>Datenbank (PostgreSQL), Authentifizierung, Dateispeicher</td><td>AWS eu-central-1, Frankfurt</td></tr>
+            </tbody>
+        </table>
+        <p><strong>Auftragsverarbeitungsvertrag (DPA):</strong> Abgeschlossen (Version Juni 2026)</p>
+
+        <h3>4.3 Subunternehmer von Supabase</h3>
+        <p>Supabase nutzt folgende Subunternehmer, die personenbezogene Daten von Häschenlauf-Nutzern verarbeiten können:</p>
+        <table>
+            <thead><tr><th>Subunternehmer</th><th>Verarbeitungszweck</th><th>Standort</th><th>Datenschutzgarantie</th></tr></thead>
+            <tbody>
+                <tr><td>Amazon Web Services (AWS)</td><td>Primäre Hosting-Infrastruktur</td><td>Frankfurt (eu-central-1)</td><td>EU-US Data Privacy Framework (DPF)</td></tr>
+                <tr><td>Google LLC (BigQuery)</td><td>Log-Analyse (Supabase-intern)</td><td>USA</td><td>EU-US DPF</td></tr>
+                <tr><td>Cloudflare, Inc.</td><td>CDN, DDoS-Schutz, Caching</td><td>Globales Edge-Netzwerk</td><td>EU-US DPF</td></tr>
+                <tr><td>Functional Software, Inc. (Sentry)</td><td>Fehlerüberwachung und -tracing</td><td>USA</td><td>EU-US DPF</td></tr>
+                <tr><td>Fly.io, Inc.</td><td>Edge Compute (Supabase Realtime)</td><td>Global</td><td>EU-Standardvertragsklauseln (SCCs)</td></tr>
+                <tr><td>Upstash, Inc.</td><td>Serverless Datenhosting</td><td>USA</td><td>EU-Standardvertragsklauseln (SCCs)</td></tr>
+                <tr><td>Vercel, Inc.</td><td>Hosting (Supabase Web-Dashboard)</td><td>USA</td><td>EU-Standardvertragsklauseln (SCCs)</td></tr>
+            </tbody>
+        </table>
+        <p>Alle Dienstleister sind vertraglich zur Einhaltung der DSGVO verpflichtet.</p>
+
+        <h3>4.4 Apple WeatherKit (Systemdienst)</h3>
+        <p>Apple WeatherKit wird als iOS-Systemdienst zur Wetterabfrage genutzt. Hierbei werden die GPS-Startkoordinaten temporär an Apple übermittelt.</p>
+        <p><strong>Rechtsgrundlage:</strong> Art. 9 Abs. 2 lit. a DSGVO. Der Abruf der Wetterdaten ist ein technisches Nebenprodukt der von dir freigegebenen GPS-Startkoordinate und dient der Kontextanreicherung deiner Trainingsanalyse.</p>
+        <p><strong>Datenschutzgarantie:</strong> Apple Inc. ist nach dem EU-US Data Privacy Framework (DPF) zertifiziert.</p>
+        <p><strong>Apple App Store Guidelines:</strong> Gemäß den Apple App Store Guidelines werden HealthKit-Daten niemals an Dritte verkauft, nicht für Marketing- oder Werbezwecke genutzt und nicht an Data Broker weitergegeben.</p>
+
+        <h2>5. Speicherdauer</h2>
+        <table>
+            <thead><tr><th>Daten</th><th>Speicherdauer</th></tr></thead>
+            <tbody>
+                <tr><td>Account-Stammdaten (E-Mail, Anzeigename)</td><td>Bis zur Kontolöschung</td></tr>
+                <tr><td>Herzfrequenz-Einzeldaten</td><td>36 Monate (danach automatisch gelöscht)</td></tr>
+                <tr><td>Herzfrequenz-Metadaten (z. B. Zonen-Zusammenfassungen)</td><td>36 Monate (danach automatisch gelöscht)</td></tr>
+                <tr><td>Trainingszusammenfassungen (Distanz, Dauer, Pace)</td><td>Unbegrenzt (solange dein Account besteht)</td></tr>
+                <tr><td>Erfolge und Bestleistungen</td><td>Unbegrenzt (solange dein Account besteht)</td></tr>
+                <tr><td>Pausen-Logs</td><td>Unbegrenzt (solange dein Account besteht)</td></tr>
+                <tr><td>Aggregierte Crew-Summen &amp; fremde Crew-Daten</td><td>Bleiben auch nach deiner Kontolöschung für die restliche Crew erhalten (da anonymisiert/aggregiert)</td></tr>
+                <tr><td>Einwilligungsaufzeichnungen</td><td>3 Jahre (danach automatisch gelöscht)</td></tr>
+                <tr><td>Lokale Daten auf dem Gerät</td><td>Bis zur App-Deinstallation oder Kontolöschung</td></tr>
+            </tbody>
+        </table>
+
+        <h2>6. Deine Rechte als betroffene Person</h2>
+        <table>
+            <thead><tr><th>Recht</th><th>Was bedeutet das?</th><th>Wie kannst du es ausüben?</th></tr></thead>
+            <tbody>
+                <tr><td>Auskunft (Art. 15 DSGVO)</td><td>Du erfährst, welche Daten wir über dich gespeichert haben</td><td>App: Profil → Daten exportieren (JSON-Datei inkl. Profil, Trainings, Consents, Erfolge, Pausenlogs, Level)</td></tr>
+                <tr><td>Berichtigung (Art. 16 DSGVO)</td><td>Du kannst falsche Daten korrigieren</td><td>App: Profil → Anzeigename, Emoji bearbeiten</td></tr>
+                <tr><td>Löschung (Art. 17 DSGVO)</td><td>Du kannst alle Daten löschen lassen</td><td>App: Profil → Konto vollständig löschen</td></tr>
+                <tr><td>Einschränkung (Art. 18 DSGVO)</td><td>Du kannst die Verarbeitung einschränken lassen</td><td>E-Mail an <a href="mailto:haeschenlauf@icloud.com">haeschenlauf@icloud.com</a></td></tr>
+                <tr><td>Datenübertragung (Art. 20 DSGVO)</td><td>Du erhältst deine Daten in einem maschinenlesbaren Format</td><td>App: Profil → Daten exportieren (JSON)</td></tr>
+                <tr><td>Widerspruch (Art. 21 DSGVO)</td><td>Du kannst der Verarbeitung widersprechen</td><td>E-Mail an <a href="mailto:haeschenlauf@icloud.com">haeschenlauf@icloud.com</a></td></tr>
+                <tr><td>Widerruf von Einwilligungen (Art. 7 Abs. 3 DSGVO)</td><td>Du kannst jede Einwilligung jederzeit widerrufen</td><td>App: Einstellungen → Datenschutz</td></tr>
+            </tbody>
+        </table>
+        <p><strong>Frist:</strong> Wir bearbeiten deine Anfrage innerhalb von maximal einem Monat.</p>
+        <p><strong>Widerruf:</strong> Ein Widerruf wirkt für die Zukunft und berührt nicht die Rechtmäßigkeit der bisherigen Verarbeitung.</p>
+
+        <h2>7. Automatisierte Entscheidungen</h2>
+        <p>Häschenlauf trifft keine automatisierten Entscheidungen mit rechtlicher Wirkung (z. B. Bonitätsprüfung, Kündigungen).</p>
+        <p>Die Gamification (Erfolge, Level) dient ausschließlich der Motivation und dem Spielspaß und hat keine rechtliche oder erhebliche beeinträchtigende Wirkung.</p>
+
+        <h2>8. Minderjährigenschutz</h2>
+        <p>Die App ist erst ab 18 Jahren freigegeben.</p>
+        <p>Beim Onboarding wird dein Alter überprüft (Eingabe des Geburtsdatums). Dabei wird ausschließlich das boolesche Ergebnis (mindestens 18 Jahre oder nicht) gespeichert – dein Geburtsdatum wird nicht an unsere Server übermittelt oder dauerhaft gespeichert.</p>
+        <p>Personen unter 18 Jahren dürfen die App nicht nutzen.</p>
+        <p><strong>Rechtsgrundlage:</strong> Art. 8 DSGVO</p>
+
+        <h2>9. Änderungen dieser Datenschutzerklärung</h2>
+        <p>Sollte sich diese Datenschutzerklärung ändern, wirst du in der App darüber informiert und musst der neuen Fassung zustimmen (Re-Consent).</p>
+        <p>Die aktuelle Version ist immer unter <a href="https://haeschenlauf.de/privacy">haeschenlauf.de/privacy</a> abrufbar.</p>
+
+        <h2>10. Beschwerderecht bei der Aufsichtsbehörde</h2>
+        <p>Du hast das Recht, dich bei einer Aufsichtsbehörde zu beschweren, wenn du der Ansicht bist, dass die Verarbeitung deiner Daten gegen die DSGVO verstößt.</p>
+        <p><strong>Zuständige Aufsichtsbehörde:</strong><br>
+        Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen<br>
+        Postfach 20 04 44<br>
+        40102 Düsseldorf<br>
+        E-Mail: <a href="mailto:poststelle@ldi.nrw.de">poststelle@ldi.nrw.de</a></p>
+
+        <h2>11. Kontakt</h2>
+        <p>Bei Fragen, Beschwerden oder zur Ausübung deiner Rechte:</p>
+        <p>
+            Felix Bischoff<br>
+            Liebigstraße 15<br>
+            45479 Mülheim an der Ruhr<br>
+            E-Mail: <a href="mailto:haeschenlauf@icloud.com">haeschenlauf@icloud.com</a>
+        </p>
+        <p><em>Ende der Datenschutzerklärung</em></p>
     </div>
 
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>Hasilauf</h4>
+                    <h4>Häschenlauf</h4>
                     <a href="index.html#crews">Crews</a>
                     <a href="index.html#features">Für dich</a>
-                    <a href="https://apps.apple.com/app/id0000000000">App Store</a>
+                    <a href="https://apps.apple.com/app/id6780870501">App Store</a>
                 </div>
                 <div class="footer-col">
                     <h4>Rechtliches</h4>
@@ -153,11 +395,11 @@
                 </div>
                 <div class="footer-col">
                     <h4>Support</h4>
-                    <a href="mailto:support@hasilauf.nrw">support@hasilauf.nrw</a>
+                    <a href="mailto:haeschenlauf@icloud.com">haeschenlauf@icloud.com</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                &copy; 2026 Felix &middot; Hasilauf &middot; Alle Rechte vorbehalten
+                &copy; 2026 Felix Bischoff &middot; Häschenlauf &middot; Alle Rechte vorbehalten
             </div>
         </div>
     </footer>
