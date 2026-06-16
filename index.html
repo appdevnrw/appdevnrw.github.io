@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hasilauf – Dein privater Lauf-Begleiter</title>
-    <meta name="description" content="Hasilauf ist die native iOS-Lauf-App mit privatem HealthKit-Sync, Crews, Challenges und Liquid-Glass-Design.">
+    <title>Hasilauf – Gemeinsam laufen. Privat bleiben.</title>
+    <meta name="description" content="Hasilauf ist die Lauf-App für kleine Crews. Vergleiche Fortschritte und Trends, ohne Pace oder Herzfrequenz preiszugeben.">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Hasilauf – Dein privater Lauf-Begleiter">
-    <meta property="og:description" content="Lauf-Tracking mit Crew, Challenges und persönlicher Statistik. Synchronisiert direkt aus Apple Health.">
+    <meta property="og:title" content="Hasilauf – Gemeinsam laufen. Privat bleiben.">
+    <meta property="og:description" content="Die private Lauf-App für kleine Crews. Vergleiche Fortschritte statt Trainingsdaten.">
     <meta property="og:image" content="icon.png">
     <meta property="og:url" content="https://hasilauf.nrw">
     <meta property="og:type" content="website">
 
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="icon.png">
 
     <style>
@@ -29,6 +28,8 @@
             --border: rgba(0, 0, 0, 0.08);
             --shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
             --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.12);
+            --green: #34C759;
+            --red: #FF3B30;
         }
 
         @media (prefers-color-scheme: dark) {
@@ -83,7 +84,6 @@
         }
         .nav-links a:hover { color: var(--blue); }
 
-        /* Mobile menu toggle */
         .menu-toggle {
             display: none; background: none; border: none;
             color: var(--text); cursor: pointer; padding: 8px;
@@ -108,7 +108,7 @@
 
         /* ── Hero ── */
         .hero {
-            padding: 140px 0 72px;
+            padding: 160px 0 96px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -119,66 +119,185 @@
             pointer-events: none;
         }
         .hero-content { position: relative; }
+        
+        /* Das Häschen als Held */
         .hero-icon {
-            width: 112px; height: 112px; border-radius: 26px;
-            margin: 0 auto 28px;
-            box-shadow: var(--shadow-lg);
+            width: 140px; height: 140px; border-radius: 32px;
+            margin: 0 auto 36px;
+            box-shadow: 0 20px 60px rgba(0, 122, 255, 0.25), 0 0 0 1px rgba(255,255,255,0.1);
+            animation: float 6s ease-in-out infinite;
         }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
         .hero h1 {
-            font-size: clamp(42px, 7vw, 68px);
+            font-size: clamp(40px, 6vw, 64px);
             font-weight: 800; letter-spacing: -0.03em;
-            margin-bottom: 14px;
+            margin-bottom: 18px;
             background: linear-gradient(135deg, var(--blue), var(--blue-dark));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         .hero .tagline {
-            font-size: clamp(17px, 2.5vw, 22px);
+            font-size: clamp(18px, 2.5vw, 22px);
             color: var(--text-muted);
-            max-width: 560px; margin: 0 auto 36px;
+            max-width: 620px; margin: 0 auto 42px;
             line-height: 1.5;
         }
         .cta-button {
             display: inline-flex; align-items: center; gap: 10px;
-            padding: 15px 30px;
+            padding: 16px 34px;
             background: var(--text); color: var(--bg);
             border-radius: 980px; text-decoration: none;
             font-weight: 600; font-size: 17px;
             transition: transform 0.2s, opacity 0.2s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         .cta-button:hover { transform: scale(1.03); }
         .cta-button:active { opacity: 0.85; }
         .cta-button svg { width: 20px; height: 20px; fill: currentColor; }
 
         /* ── Section titles ── */
-        section { padding: 72px 0; }
+        section { padding: 84px 0; }
         .section-title {
             font-size: clamp(30px, 4vw, 44px);
             font-weight: 700; text-align: center;
-            margin-bottom: 12px; letter-spacing: -0.02em;
+            margin-bottom: 16px; letter-spacing: -0.02em;
         }
         .section-subtitle {
             text-align: center; color: var(--text-muted);
-            font-size: 17px; max-width: 560px;
-            margin: 0 auto 52px; line-height: 1.55;
+            font-size: 18px; max-width: 620px;
+            margin: 0 auto 64px; line-height: 1.55;
         }
 
-        /* ── Features ── */
-        .features-grid {
+        /* ── Das Problem (Comparison) ── */
+        .comparison-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            max-width: 860px;
+            margin: 0 auto;
         }
-        .feature-card {
-            background: var(--surface);
+        @media (max-width: 700px) { .comparison-grid { grid-template-columns: 1fr; } }
+        
+        .comp-card {
+            padding: 36px;
+            border-radius: 28px;
+            border: 1px solid var(--border);
+        }
+        .comp-card.bad { 
+            background: rgba(255, 59, 48, 0.03); 
+            border-color: rgba(255, 59, 48, 0.15);
+        }
+        .comp-card.good { 
+            background: var(--surface); 
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
+            border-color: rgba(0, 122, 255, 0.2);
+            box-shadow: var(--shadow);
+        }
+        .comp-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 20px; }
+        .comp-card ul { list-style: none; }
+        .comp-card li {
+            padding: 12px 0;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+        .comp-card li:last-child { border-bottom: none; }
+        .comp-card.bad li { color: var(--text-muted); text-decoration: line-through; }
+        .comp-card.good li { color: var(--text); font-weight: 500; }
+        .comp-card.good li::before {
+            content: '✓';
+            color: var(--green);
+            font-weight: 800;
+            font-size: 18px;
+        }
+
+        /* ── So funktioniert's (Trends) ── */
+        .trends-mockup {
+            max-width: 480px;
+            margin: 0 auto;
+            background: var(--surface);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            padding: 24px;
+            box-shadow: var(--shadow-lg);
+        }
+        .trend-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .trend-item:last-child { border-bottom: none; }
+        .trend-user {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .trend-avatar {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FF9500, #FF3B30);
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-weight: 700; font-size: 18px;
+        }
+        .trend-avatar.blue { background: linear-gradient(135deg, #007AFF, #5856D6); }
+        .trend-avatar.green { background: linear-gradient(135deg, #34C759, #30B0C7); }
+        .trend-name { font-weight: 600; font-size: 16px; }
+        
+        .trend-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 980px;
+            font-weight: 700;
+            font-size: 15px;
+        }
+        .trend-pill.up { background: rgba(52, 199, 89, 0.15); color: var(--green); }
+        .trend-pill.down { background: rgba(255, 59, 48, 0.15); color: var(--red); }
+
+        /* ── Crews (Screenshots) ── */
+        .screenshots { position: relative; overflow: hidden; background: rgba(0, 122, 255, 0.02); }
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .screenshot-grid img {
+            width: 100%; border-radius: 24px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+        }
+        @media (max-width: 700px) { .screenshot-grid { grid-template-columns: 1fr; } }
+
+        /* ── Deine Daten (Secondary Features) ── */
+        .secondary-features {
+            background: var(--surface-solid);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .feature-card {
+            background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 20px; padding: 28px;
-            transition: transform 0.25s;
         }
-        .feature-card:hover { transform: translateY(-3px); }
         .feature-icon {
             width: 44px; height: 44px;
             border-radius: 12px; margin-bottom: 14px;
@@ -186,53 +305,84 @@
             display: flex; align-items: center; justify-content: center;
         }
         .feature-icon svg { width: 22px; height: 22px; color: var(--blue); }
-        .feature-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 6px; }
+        .feature-card h3 { font-size: 17px; font-weight: 600; margin-bottom: 6px; }
         .feature-card p { color: var(--text-muted); font-size: 14px; line-height: 1.55; }
 
         @media (max-width: 900px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 520px) { .features-grid { grid-template-columns: 1fr; } }
 
-        /* ── Screenshots ── */
-        .screenshots { position: relative; overflow: hidden; }
-        .screenshots::before {
-            content: ''; position: absolute; inset: 0;
-            background: radial-gradient(ellipse at center, rgba(0, 122, 255, 0.06), transparent 70%);
-            pointer-events: none;
-        }
-        .screenshot-grid {
+        /* ── Privacy & Apple (Trust) ── */
+        .trust-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 28px;
-        }
-        .screenshot-grid img {
-            width: 100%; border-radius: 24px;
-            box-shadow: var(--shadow-lg);
-        }
-
-        @media (max-width: 900px) { .screenshot-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 520px) { .screenshot-grid { grid-template-columns: 1fr; gap: 20px; } }
-
-        /* ── Privacy ── */
-        .privacy-box {
-            background: var(--surface);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
-            border-radius: 28px; padding: 44px;
-            text-align: center; max-width: 720px;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            max-width: 900px;
             margin: 0 auto;
         }
-        .privacy-icon {
+        @media (max-width: 700px) { .trust-grid { grid-template-columns: 1fr; } }
+        
+        .trust-box {
+            background: var(--surface);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 28px; padding: 40px;
+        }
+        .trust-icon {
             width: 56px; height: 56px; border-radius: 16px;
             background: rgba(0, 122, 255, 0.1);
             display: flex; align-items: center; justify-content: center;
-            margin: 0 auto 20px;
+            margin-bottom: 20px;
         }
-        .privacy-icon svg { width: 28px; height: 28px; color: var(--blue); }
-        .privacy-box h2 { font-size: 28px; font-weight: 700; margin-bottom: 14px; }
-        .privacy-box p { color: var(--text-muted); font-size: 16px; line-height: 1.65; }
+        .trust-icon svg { width: 28px; height: 28px; color: var(--blue); }
+        .trust-box h3 { font-size: 24px; font-weight: 700; margin-bottom: 12px; }
+        .trust-box p { color: var(--text-muted); font-size: 16px; line-height: 1.65; margin-bottom: 16px; }
+        .trust-box ul { list-style: none; }
+        .trust-box li {
+            font-size: 15px; color: var(--text); margin-bottom: 8px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .trust-box li::before { content: '✓'; color: var(--green); font-weight: 800; }
 
-        @media (max-width: 520px) { .privacy-box { padding: 28px 20px; } }
+        /* ── Story ── */
+        .story-section {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+        .story-section blockquote {
+            font-size: clamp(22px, 3vw, 28px);
+            font-weight: 500;
+            line-height: 1.5;
+            color: var(--text);
+            font-style: italic;
+            margin-bottom: 24px;
+        }
+        .story-section cite {
+            font-style: normal;
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+
+        /* ── Final CTA ── */
+        .final-cta {
+            text-align: center;
+            padding: 100px 24px;
+            background: linear-gradient(135deg, rgba(0, 122, 255, 0.05), rgba(88, 86, 214, 0.05));
+            border-radius: 40px;
+            margin: 0 24px 80px;
+            border: 1px solid var(--border);
+        }
+        .final-cta h2 {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        .final-cta p {
+            color: var(--text-muted);
+            font-size: 18px;
+            margin-bottom: 36px;
+        }
 
         /* ── Footer ── */
         footer {
@@ -274,9 +424,10 @@
                 Hasilauf
             </a>
             <ul class="nav-links">
-                <li><a href="#features">Features</a></li>
-                <li><a href="#screenshots">Einblicke</a></li>
+                <li><a href="#crews">Crews</a></li>
+                <li><a href="#features">Für dich</a></li>
                 <li><a href="#privacy">Datenschutz</a></li>
+                <li><a href="#story">Story</a></li>
                 <li><a href="https://apps.apple.com/app/id0000000000">Download</a></li>
             </ul>
             <button class="menu-toggle" onclick="document.getElementById('mobile-menu').style.display = document.getElementById('mobile-menu').style.display === 'block' ? 'none' : 'block'" aria-label="Menü">
@@ -284,9 +435,10 @@
             </button>
         </div>
         <div id="mobile-menu" class="mobile-menu">
-            <a href="#features" onclick="document.getElementById('mobile-menu').style.display='none'">Features</a>
-            <a href="#screenshots" onclick="document.getElementById('mobile-menu').style.display='none'">Einblicke</a>
+            <a href="#crews" onclick="document.getElementById('mobile-menu').style.display='none'">Crews</a>
+            <a href="#features" onclick="document.getElementById('mobile-menu').style.display='none'">Für dich</a>
             <a href="#privacy" onclick="document.getElementById('mobile-menu').style.display='none'">Datenschutz</a>
+            <a href="#story" onclick="document.getElementById('mobile-menu').style.display='none'">Story</a>
             <a href="https://apps.apple.com/app/id0000000000">Download</a>
         </div>
     </nav>
@@ -294,9 +446,9 @@
     <!-- Hero -->
     <header class="hero">
         <div class="container hero-content">
-            <img src="icon.png" alt="Hasilauf Icon" class="hero-icon">
-            <h1>Hasilauf</h1>
-            <p class="tagline">Dein privater Lauf-Begleiter. Synchronisiert direkt aus Apple Health – mit Crews, Challenges und persönlicher Statistik.</p>
+            <img src="icon.png" alt="Hasilauf Häschen" class="hero-icon">
+            <h1>Vergleiche Fortschritte.<br>Nicht deine Pace.</h1>
+            <p class="tagline">Hasilauf ist die App für kleine Lauf-Crews, die sich gegenseitig motivieren wollen – ohne sensible Trainingsdaten wie Pace oder Herzfrequenz preiszugeben.</p>
             <a href="https://apps.apple.com/app/id0000000000" class="cta-button">
                 <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
                 Im App Store laden
@@ -304,98 +456,166 @@
         </div>
     </header>
 
-    <!-- Features -->
-    <section id="features">
+    <!-- Das Problem -->
+    <section id="problem">
         <div class="container">
-            <h2 class="section-title">Alles, was Läufer brauchen</h2>
-            <p class="section-subtitle">Hasilauf verbindet sich nahtlos mit Apple Health und macht deine Daten sichtbar – privat, schön und motivierend.</p>
+            <h2 class="section-title">Schluss mit dem Pace-Druck</h2>
+            <p class="section-subtitle">Normale Lauf-Apps zwingen dich, alles zu zeigen. Hasilauf schützt deine Privatsphäre und fokussiert sich auf das, was wirklich motiviert.</p>
+            
+            <div class="comparison-grid">
+                <div class="comp-card bad">
+                    <h3>Typische Lauf-Apps</h3>
+                    <ul>
+                        <li>Exakte Pace & Herzfrequenz</li>
+                        <li>Trainingsvolumen & Distanz</li>
+                        <li>Öffentliche Bestenlisten</li>
+                        <li>Druck & Vergleichsstress</li>
+                    </ul>
+                </div>
+                <div class="comp-card good">
+                    <h3>Hasilauf</h3>
+                    <ul>
+                        <li>Persönliche Trends & Entwicklungen</li>
+                        <li>Fortschritt statt Rohdaten</li>
+                        <li>Private Crews (2–20 Personen)</li>
+                        <li>Motivation ohne Scham</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- So funktioniert's -->
+    <section id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Fortschritt, den jeder sehen darf</h2>
+            <p class="section-subtitle">In deiner Crew sehen deine Freunde nicht, wie schnell du läufst – sondern ob du dich im Vergleich zur letzten Woche gesteigert hast.</p>
+            
+            <div class="trends-mockup">
+                <div class="trend-item">
+                    <div class="trend-user">
+                        <div class="trend-avatar blue">F</div>
+                        <span class="trend-name">Felix</span>
+                    </div>
+                    <div class="trend-pill up">+12% ↑</div>
+                </div>
+                <div class="trend-item">
+                    <div class="trend-user">
+                        <div class="trend-avatar green">S</div>
+                        <span class="trend-name">Sarah</span>
+                    </div>
+                    <div class="trend-pill up">+4% ↑</div>
+                </div>
+                <div class="trend-item">
+                    <div class="trend-user">
+                        <div class="trend-avatar">M</div>
+                        <span class="trend-name">Max</span>
+                    </div>
+                    <div class="trend-pill down">-2% ↓</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Crews & Challenges -->
+    <section id="crews" class="screenshots">
+        <div class="container">
+            <h2 class="section-title">Deine Crew. Deine Challenges.</h2>
+            <p class="section-subtitle">Gründe private Gruppen, starte Wettbewerbe und feiert gemeinsam eure Entwicklungen – ganz ohne Leistungsdruck.</p>
+            <div class="screenshot-grid">
+                <img src="screenshot-crew.png" alt="Hasilauf Crew-Ansicht">
+                <img src="screenshot-challenges.png" alt="Challenges und Gamification">
+            </div>
+        </div>
+    </section>
+
+    <!-- Deine persönlichen Daten (Sekundär) -->
+    <section id="features" class="secondary-features">
+        <div class="container">
+            <h2 class="section-title">Dein privates Archiv</h2>
+            <p class="section-subtitle">Alle klassischen Tracking-Features, die du brauchst – aber nur für dich allein. Deine Crew sieht davon nichts.</p>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
                     </div>
                     <h3>HealthKit-Sync</h3>
-                    <p>Puls, Pace, Schritte, Watt – alles automatisch aus Apple Health. Keine Wearables nötig.</p>
+                    <p>Puls, Pace, Watt – alles automatisch aus Apple Health.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
                     </div>
-                    <h3>Wetter zu jedem Lauf</h3>
-                    <p>Temperatur, Wind und Bedingungen pro Training. Sieh, wie Wetter deine Leistung beeinflusst.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    </div>
-                    <h3>Crews & Challenges</h3>
-                    <p>Laufe gemeinsam mit Freunden und messe dich in fairen Wettkämpfen.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-                    </div>
-                    <h3>Biometrisch geschützt</h3>
-                    <p>Face ID statt Passwort. Sicher, schnell und bequem.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C7 4 9 8 9 8"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5C17 4 15 8 15 8"/><path d="M4 22h16"/><path d="M10 22V8a6 6 0 0 1 12 0v1"/><path d="M4 14h2"/><path d="M4 18h2"/></svg>
-                    </div>
-                    <h3>Gamification</h3>
-                    <p>Streaks, Achievements und Weekly Summary – Motivation, die Spaß macht.</p>
+                    <h3>Wetter-Tracking</h3>
+                    <p>Temperatur und Wind pro Training. Sieh, wie Wetter dich beeinflusst.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
                     </div>
-                    <h3>Detaillierte Statistiken</h3>
-                    <p>HR-Zonen, Pacing-Konsistenz, Trends und persönliche Rekorde auf einen Blick.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    </div>
-                    <h3>Daten-Export als JSON</h3>
-                    <p>Du behältst die Kontrolle. Exportiere alle deine Daten jederzeit.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg>
-                    </div>
-                    <h3>Designed für iOS 26</h3>
-                    <p>Native Liquid-Glass-Oberfläche. Schön, flüssig und barrierefrei.</p>
+                    <h3>Detaillierte Stats</h3>
+                    <p>HR-Zonen, Pacing-Konsistenz und persönliche Rekorde.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Screenshots -->
-    <section id="screenshots" class="screenshots">
-        <div class="container">
-            <h2 class="section-title">Einblicke in die App</h2>
-            <p class="section-subtitle">Ein Vorgeschmack auf dein neues Lauf-Dashboard.</p>
-            <div class="screenshot-grid">
-                <img src="screenshot-dashboard.png" alt="Hasilauf Dashboard mit Wochenringen und Statistiken">
-                <img src="screenshot-run-detail.png" alt="Detaillierte Auswertung eines Laufs mit Karte und HealthKit-Daten">
-                <img src="screenshot-crew.png" alt="Hasilauf Crew-Ansicht mit Mitgliedern und Bestenlisten">
-                <img src="screenshot-challenges.png" alt="Gamification, Achievements und Challenges in der App">
-            </div>
-        </div>
-    </section>
-
-    <!-- Privacy -->
+    <!-- Trust (Privacy & Apple) -->
     <section id="privacy">
         <div class="container">
-            <div class="privacy-box">
-                <div class="privacy-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <h2 class="section-title">Vertrauen durch Transparenz</h2>
+            <p class="section-subtitle">Entwickelt für Apple-Nutzer, die Wert auf ihre Daten legen.</p>
+            
+            <div class="trust-grid">
+                <div class="trust-box">
+                    <div class="trust-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    </div>
+                    <h3>Maximale Privatsphäre</h3>
+                    <p>Hasilauf trackt dich nicht. Deine Daten gehören dir.</p>
+                    <ul>
+                        <li>Keine Werbung</li>
+                        <li>Keine Tracker oder Drittanbieter-SDKs</li>
+                        <li>Daten-Export als JSON jederzeit möglich</li>
+                        <li>Face ID Schutz für die App</li>
+                    </ul>
                 </div>
-                <h2>Deine Daten bleiben privat</h2>
-                <p>Hasilauf trackt dich nicht. Keine Werbung, keine Tracker, keine Drittanbieter-SDKs. Deine Trainingsdaten werden verschlüsselt mit deinem eigenen Account synchronisiert – und nur mit deiner Einwilligung aus Apple Health gelesen.</p>
+                <div class="trust-box">
+                    <div class="trust-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 14a1 1 0 1 1 1-1 1 1 0 0 1-1 1Zm1-4.28V12a1 1 0 0 1-2 0V11a4 4 0 1 1 4-4 1 1 0 0 1-2 0 2 2 0 1 0-2 2 1 1 0 0 1 1 1Z"/></svg>
+                    </div>
+                    <h3>Native für iOS 26</h3>
+                    <p>Kein Web-Wrapper. Eine echte, native App.</p>
+                    <ul>
+                        <li>Nahtlose Apple Health Integration</li>
+                        <li>Modernes Liquid-Glass-Design</li>
+                        <li>Optimiert für die Apple Watch</li>
+                        <li>100% Barrierefreiheit</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- Story -->
+    <section id="story">
+        <div class="container">
+            <div class="story-section">
+                <blockquote>„Hasilauf entstand aus einer kleinen Lauf-Crew, die sich einfach nur motivieren wollte – ohne sich für langsame Pace oder hohe Herzfrequenz rechtfertigen zu müssen.“</blockquote>
+                <cite>— Felix, Gründer von Hasilauf</cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <div class="final-cta">
+        <h2>Starte deine private<br>Lauf-Challenge.</h2>
+        <p>Lade deine Freunde ein und vergleiche das, was wirklich zählt.</p>
+        <a href="https://apps.apple.com/app/id0000000000" class="cta-button">
+            <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            Im App Store laden
+        </a>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -403,8 +623,8 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <h4>Hasilauf</h4>
-                    <a href="#features">Features</a>
-                    <a href="#screenshots">Einblicke</a>
+                    <a href="#crews">Crews</a>
+                    <a href="#features">Für dich</a>
                     <a href="https://apps.apple.com/app/id0000000000">App Store</a>
                 </div>
                 <div class="footer-col">
