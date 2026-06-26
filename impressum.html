@@ -61,11 +61,17 @@
         /* Content */
         .page { max-width: 680px; margin: 0 auto; padding: 120px 24px 60px; }
         h1 { font-size: 32px; font-weight: 700; margin-bottom: 28px; letter-spacing: -0.02em; }
-        h2 { font-size: 18px; font-weight: 600; margin: 28px 0 10px; }
+        h2 { font-size: 20px; font-weight: 600; margin: 32px 0 12px; color: var(--text); }
+        h3 { font-size: 16px; font-weight: 600; margin: 24px 0 8px; color: var(--text); }
         p { color: var(--text-muted); font-size: 15px; margin-bottom: 10px; }
         p strong { color: var(--text); }
         a { color: var(--blue); text-decoration: none; }
         a:hover { text-decoration: underline; }
+        
+        /* Lists for Disclaimer */
+        ul { margin: 10px 0 15px 20px; color: var(--text-muted); font-size: 15px; }
+        ul li { margin-bottom: 8px; }
+        ul li strong { color: var(--text); }
 
         /* Footer */
         footer { border-top: 1px solid var(--border); padding: 40px 0 28px; margin-top: 48px; }
@@ -106,7 +112,7 @@
 
     <div class="page">
         <h1>Impressum</h1>
-        <p><strong>Angaben gemäß § 5 TMG</strong></p>
+        <p><strong>Angaben gemäß § 5 DDG</strong></p>
         <p>
             Felix Bischoff<br>
             Liebigstraße 15<br>
@@ -115,14 +121,56 @@
         </p>
         <h2>Kontakt</h2>
         <p>E-Mail: <a href="mailto:haeschenlauf@icloud.com">haeschenlauf@icloud.com</a></p>
-        <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
+        <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
         <p>
             Felix Bischoff<br>
             Liebigstraße 15<br>
             45479 Mülheim
         </p>
-        <h2>Haftungsausschluss</h2>
-        <p>Dies ist eine Platzhalter-Seite. Die rechtlichen Texte werden vor dem offiziellen Launch der App finalisiert.</p>
+
+        <h2>EU-Streitschlichtung</h2>
+        <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/consumers/odr/</a>.</p>
+        <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+
+        <h2>Haftungsausschluss (Disclaimer)</h2>
+        
+        <h3>1. Medizinischer Disclaimer und Kein Live-Monitoring</h3>
+        <p>Häschenlauf ist ein digitales Analyse- und Motivationstool, das Trainingsdaten ausschließlich nachträglich auswertet.</p>
+        <ul>
+            <li><strong>Kein Live-Monitoring:</strong> Die App ist während des Lauftrainings nicht aktiv. Es findet keine Live-Überwachung von Vitalwerten, keine Aufzeichnung von GPS-Routen und kein akustisches oder visuelles Coaching statt.</li>
+            <li><strong>Kein Ersatz für ärztlichen Rat:</strong> Die App stellt keine medizinische Diagnose und bietet keine ärztliche oder sporttherapeutische Beratung. Die dargestellten Auswertungen (z. B. Fortschrittsanalysen) ersetzen keinesfalls den Rat eines Arztes oder Sportmediziners.</li>
+            <li><strong>Nutzung auf eigene Gefahr:</strong> Da die App den Nutzer während des Sports nicht überwacht, kann durch die App nicht vor Überlastung gewarnt werden. Der Nutzer trägt die alleinige Verantwortung für seine körperliche Verfassung, die Einschätzung seiner Grenzen und die Einhaltung seiner gesundheitlichen Voraussetzungen. Bei Schmerzen, Unwohlsein oder Vorerkrankungen ist das Training sofort abzubrechen und ggf. ärztlicher Rat einzuholen. Für gesundheitliche Schäden, die durch Überlastung oder Fehleinschätzung der eigenen Fitness entstehen, übernimmt der Anbieter keine Haftung.</li>
+        </ul>
+
+        <h3>2. Datenherkunft (Apple HealthKit) und Haftung für Datenungenauigkeiten</h3>
+        <p>Häschenlauf zeichnet selbst keine Trainingsdaten (wie Distanz, Pace oder Herzfrequenz) auf. Die App liest ausschließlich Daten aus, die der Nutzer zuvor mit anderen Apps, Smartwatches oder Geräten aufgezeichnet und in Apple Health (HealthKit) gespeichert hat.</p>
+        <ul>
+            <li><strong>Keine Gewährleistung für Fremd-Daten:</strong> Wir haften nicht für die Richtigkeit, Vollständigkeit oder Plausibilität der importierten Trainingsdaten. Fehlerhafte Aufzeichnungen (z. B. durch GPS-Ausfälle der aufzeichnenden Dritt-App, Sync-Fehler in Apple Health oder Hardware-Defekte) werden von Häschenlauf lediglich gespiegelt und können zu fehlerhaften Fortschritts-Anzeigen in der App oder in privaten Crews führen.</li>
+            <li><strong>Keine Routenaufzeichnung:</strong> Es werden keine GPS-Tracks, Bewegungsprofile oder Kartenvisualisierungen der gelaufenen Strecken durch Häschenlauf erstellt oder gespeichert.</li>
+        </ul>
+
+        <h3>3. Standortdaten und Wetter-API</h3>
+        <p>Die App fragt den Standort (GPS) des Nutzers ausschließlich und nur punktuell ab, um lokale Wetterdaten über eine Drittanbieter-Schnittstelle (API) zu laden und kontextbezogene Informationen zum Training bereitzustellen.</p>
+        <ul>
+            <li><strong>Keine Bewegungsprofile:</strong> Eine dauerhafte GPS-Überwachung, ein Hintergrund-Tracking oder die Erstellung von Bewegungsprofilen findet nicht statt.</li>
+            <li><strong>Wetterdaten:</strong> Wir haften nicht für die Richtigkeit der Wettervorhersagen der angebundenen Drittanbieter oder daraus resultierende Fehlentscheidungen des Nutzers.</li>
+        </ul>
+
+        <h3>4. Beta-Phase, TestFlight und technische Verfügbarkeit</h3>
+        <p>Die App „Häschenlauf“ wird teilweise noch im Rahmen von Beta-Testphasen (z. B. über Apple TestFlight) angeboten.</p>
+        <ul>
+            <li><strong>Fehlerfreiheit und Verfügbarkeit:</strong> Beta-Software ist naturgemäß noch in der Entwicklung. Wir bemühen uns um eine fehlerfreie Funktion, können jedoch nicht garantieren, dass die App jederzeit störungsfrei läuft, mit allen aktuellen oder zukünftigen iOS-Versionen (inklusive Beta-OS-Versionen) kompatibel ist oder dass der HealthKit-Import immer fehlerfrei funktioniert.</li>
+            <li><strong>Datenverlust:</strong> Die Bereitstellung der App erfolgt „wie sie ist“ (as is). Eine Haftung für entgangenen Gewinn, Datenverlust (z. B. beim Synchronisieren von Crews oder Trainingshistorien) oder technische Ausfälle während der Beta-Phase ist, soweit gesetzlich zulässig, ausgeschlossen, sofern kein vorsätzliches oder grob fahrlässiges Handeln unsererseits vorliegt.</li>
+        </ul>
+
+        <h3>5. Inhalte des Onlineangebotes (Website)</h3>
+        <p>Der Anbieter übernimmt keinerlei Gewähr für die Aktualität, Korrektheit, Vollständigkeit oder Qualität der bereitgestellten Informationen auf dieser Website. Haftungsansprüche gegen den Anbieter, welche sich auf Schäden materieller oder ideeller Art beziehen, die durch die Nutzung oder Nichtnutzung der dargebotenen Informationen bzw. durch die Nutzung fehlerhafter und unvollständiger Informationen verursacht wurden, sind grundsätzlich ausgeschlossen, sofern seitens des Anbieters kein nachweislich vorsätzliches oder grob fahrlässiges Verschulden vorliegt. Alle Angebote sind freibleibend und unverbindlich. Der Anbieter behält es sich ausdrücklich vor, Teile der Seiten oder das gesamte Angebot ohne gesonderte Ankündigung zu verändern, zu ergänzen, zu löschen oder die Veröffentlichung zeitweise oder endgültig einzustellen.</p>
+
+        <h3>6. Verweise und Links</h3>
+        <p>Bei direkten oder indirekten Verweisen auf fremde Webseiten ("Hyperlinks"), die außerhalb des Verantwortungsbereiches des Anbieters liegen, würde eine Haftungsverpflichtung ausschließlich in dem Fall in Kraft treten, in dem der Anbieter von den Inhalten Kenntnis hat und es ihm technisch möglich und zumutbar wäre, die Nutzung im Falle rechtswidriger Inhalte zu verhindern. Der Anbieter erklärt hiermit ausdrücklich, dass zum Zeitpunkt der Linksetzung keine illegalen Inhalte auf den zu verlinkenden Seiten erkennbar waren. Auf die aktuelle und zukünftige Gestaltung, die Inhalte oder die Urheberschaft der verlinkten/verknüpften Seiten hat der Anbieter keinerlei Einfluss. Deshalb distanziert er sich hiermit ausdrücklich von allen Inhalten aller verlinkten/verknüpften Seiten, die nach der Linksetzung verändert wurden.</p>
+
+        <h3>7. Salvatorische Klausel</h3>
+        <p>Sofern Teile oder einzelne Formulierungen dieses Textes der geltenden Rechtslage nicht, nicht mehr oder nicht vollständig entsprechen sollten, bleiben die übrigen Teile des Dokumentes in ihrem Inhalt und ihrer Gültigkeit davon unberührt.</p>
     </div>
 
     <footer>
