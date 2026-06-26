@@ -159,6 +159,36 @@
         .cta-button:active { opacity: 0.85; }
         .cta-button svg { width: 20px; height: 20px; fill: currentColor; }
 
+        /* ── CTA Wrapper & Modifications ── */
+        .cta-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: center;
+        }
+        .cta-button.testflight {
+            background: var(--blue);
+            color: #FFFFFF;
+        }
+        .cta-button.testflight:hover {
+            background: var(--blue-dark);
+            transform: scale(1.03);
+        }
+        .cta-button.disabled {
+            background: #C7C7CC;
+            color: #FFFFFF;
+            pointer-events: none;
+            opacity: 0.85;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+        @media (prefers-color-scheme: dark) {
+            .cta-button.disabled {
+                background: #48484A;
+                color: #EBEBF5;
+            }
+        }
+
         /* ── Section titles ── */
         section { padding: 84px 0; }
         .section-title {
@@ -553,10 +583,16 @@
             <img src="icon.png" alt="Häschenlauf Häschen" class="hero-icon">
             <h1>Du musst nicht am schnellsten sein.<br>Nur dranbleiben.</h1>
             <p class="tagline">Häschenlauf belohnt Fortschritt, nicht Tempo. Die Lauf-App, bei der Anfänger und Marathonläufer fair miteinander laufen können.</p>
-            <a href="https://apps.apple.com/app/id6780870501" class="cta-button">
-                <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-                Im App Store laden
-            </a>
+            <div class="cta-wrapper">
+                <a href="https://testflight.apple.com/join/schB5tPM" class="cta-button testflight" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    Jetzt Beta testen (TestFlight)
+                </a>
+                <span class="cta-button disabled">
+                    <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    Demnächst im App Store
+                </span>
+            </div>
         </div>
     </header>
 
@@ -680,14 +716,14 @@
                             <div class="trend-avatar green">P</div>
                             <span class="trend-name">Paula</span>
                         </div>
-                        <div class="trend-pill down">-2% ↓</div>
+                        <div class="trend-pill down">-2% ↑</div>
                     </div>
                     <div class="trend-item">
                         <div class="trend-user">
                             <div class="trend-avatar blue">J</div>
                             <span class="trend-name">Johann</span>
                         </div>
-                        <div class="trend-pill up">+4% ↑</div>
+                        <div class="trend-pill up">+4% ↓</div>
                     </div>
                 </div>
                 <p>In deiner Crew siehst du nicht, wie schnell die anderen laufen – sondern wie sehr sie sich im Vergleich zur letzten Woche verbessert haben.</p>
@@ -790,10 +826,16 @@
     <div class="final-cta">
         <h2>Tracke deine privaten<br>Lauf-Challenges.</h2>
         <p>Lade deine Freunde ein und vergleiche das, was wirklich zählt.</p>
-        <a href="https://apps.apple.com/app/id6780870501" class="cta-button">
-            <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-            Im App Store laden
-        </a>
+        <div class="cta-wrapper">
+            <a href="https://testflight.apple.com/join/schB5tPM" class="cta-button testflight" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                Jetzt Beta testen (TestFlight)
+            </a>
+            <span class="cta-button disabled">
+                <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                Demnächst im App Store
+            </span>
+        </div>
     </div>
 
     <!-- Footer -->
