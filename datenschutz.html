@@ -148,7 +148,7 @@
 
     <div class="page">
         <h1>Datenschutzerklärung für Häschenlauf</h1>
-        <p><strong>Stand: 09.06.2026</strong></p>
+        <p><strong>Stand: 26.06.2026</strong></p>
 
         <h2>Impressum &amp; Verantwortlicher</h2>
         <p><strong>Verantwortlicher im Sinne der DSGVO und des DDG:</strong></p>
@@ -201,12 +201,12 @@
             <li>Herzfrequenz (Durchschnitt, Minimum, Maximum, Ruhepuls, Herzfrequenz-Zonen, Herzfrequenz-Erholung)</li>
             <li>Trainingsdauer, -distanz, -pace und -typ</li>
             <li>Laufleistung (Kadenz, Schrittlänge, Bodenkontaktzeit, vertikale Oszillation, Leistung in Watt)</li>
-            <li>GPS-Startkoordinate deines Trainings</li>
+            <li>GPS-Startkoordinate deines Trainings (importiert aus HealthKit – kein aktives GPS-Tracking)</li>
             <li>Zurückgelegte Höhenmeter</li>
             <li>Energieverbrauch (Kalorien)</li>
         </ul>
         <p><strong>GPS-Route – Datenminimierung:</strong><br>
-        Die vollständige GPS-Route wird ausschließlich temporär auf deinem Gerät für die Berechnung des Höhenprofils und zur Wetterabfrage verarbeitet. Nur die Startkoordinate wird dauerhaft in unserer Datenbank gespeichert.</p>
+        Die vollständige GPS-Route wird ausschließlich temporär auf deinem Gerät für die Berechnung des Höhenprofils und zur Wetterabfrage verarbeitet. Nur die Startkoordinate wird dauerhaft in unserer Datenbank gespeichert. Die App zeichnet keine GPS-Daten im Hintergrund auf – die Verarbeitung erfolgt nur auf bereits über HealthKit importierte Trainings.</p>
         <p><strong>HealthKit-Zugriff:</strong> Die App greift ausschließlich lesend auf HealthKit zu. Es werden keine Daten in Apple Health zurückgeschrieben. Eine Hintergrundaktualisierung (z. B. nach einem abgeschlossenen Training) erfolgt über den iOS-Hintergrunddienst HKObserverQuery.</p>
         <p><strong>Rechtsgrundlage:</strong> Art. 9 Abs. 2 lit. a DSGVO (ausdrückliche Einwilligung für Gesundheitsdaten)</p>
 
@@ -251,18 +251,28 @@
                 <tr><td>Nutzerprofil (zwischengespeichert)</td><td>iOS Keychain (verschlüsselt)</td><td>Offline-Fallback</td></tr>
                 <tr><td>Formulardaten (Entwürfe)</td><td>App-eigener Ordner (geräteverschlüsselt)</td><td>Offline-Eingabe</td></tr>
                 <tr><td>Sync-Queue (ausstehende Trainings)</td><td>UserDefaults</td><td>Temporäre Pufferung bei fehlender Internetverbindung</td></tr>
-                <tr><td>Consent-Status-Mirror (Gesundheitsdaten, Crew)</td><td>UserDefaults</td><td>Offline-Prüfung des Einwilligungsstatus</td></tr>
+                <tr><td>Consent-Status-Mirror (Gesundheitsdaten, Crew)</td><td>iOS Keychain (verschlüsselt)</td><td>Offline-Prüfung des Einwilligungsstatus</td></tr>
                 <tr><td>Idempotenz-Cache</td><td>UserDefaults</td><td>Schutz vor doppelten Sync-Vorgängen bei Offline-Nutzung</td></tr>
                 <tr><td>App-Einstellungen (Theme, Einheiten, Sync-Präferenzen)</td><td>UserDefaults</td><td>Personalisierung</td></tr>
             </tbody>
         </table>
         <p><strong>Rechtsgrundlage für lokale Speicherung:</strong> § 25 Abs. 2 Nr. 2 TDDDG (technisch zwingend erforderlich für Kernfunktionen: Login, Offline-Sync, Einstellungen) sowie Art. 6 Abs. 1 lit. b, f DSGVO.</p>
-        <p><em>Keine Tracking-SDKs: Es werden keine Tracking- oder Marketing-SDKs Dritter auf deinem Gerät gespeichert.</em></p>
+        <p><strong>Keine Werbe-Tracker oder Analytics-SDKs:</strong> Es werden keine Werbe-Tracker, Analyse- oder Marketing-SDKs Dritter auf deinem Gerät gespeichert. Die gesamte Backend-Infrastruktur läuft auf DSGVO-konformen Servern in der EU (Frankfurt, Deutschland) – deine Daten verlassen nicht den Europäischen Wirtschaftsraum.</p>
         <p>Die lokalen Daten werden bei einer Kontolöschung vollständig entfernt.</p>
 
         <h3>2.9 Pausen-Logs (Trainingspausen)</h3>
         <p>Wenn du in der App eine Trainingspause einträgst, speichern wir Start- und Endzeitpunkt sowie eine optionale Notiz. Dies dient der korrekten Berechnung deiner Laufserie (Streak) und der fairen Aussetzung von Wochenzielen.</p>
         <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)</p>
+
+        <h3>2.10 Beta-Test (TestFlight)</h3>
+        <p>Wenn du die App über Apple TestFlight als Beta-Tester nutzt, gelten ergänzend die folgenden Hinweise:</p>
+        <ul>
+            <li>Die in dieser Datenschutzerklärung beschriebene Datenverarbeitung gilt in vollem Umfang auch für Beta-Tester</li>
+            <li>Beta-Tester-Daten unterliegen denselben Speicherfristen und Löschverfahren wie Produktivdaten (siehe § 5)</li>
+            <li>Wenn du die Beta-Test-Phase verlässt (freiwillig oder durch Entfernung durch den Betreiber) oder deinen Account löschst, werden deine Daten gemäß § 5 gelöscht</li>
+            <li>Apple TestFlight erhebt zusätzlich eigene Diagnosedaten (Crash-Reports, Nutzungsdaten, Geräteinformationen). Hierfür gilt ausschließlich die Datenschutzerklärung von Apple. Der Betreiber hat auf diese Datenerhebung keinen Einfluss</li>
+        </ul>
+        <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung) i.V.m. den weiteren in dieser Erklärung genannten Rechtsgrundlagen</p>
 
         <h2>3. Welche Daten erheben wir nicht?</h2>
         <p>Häschenlauf erhebt bewusst keine der folgenden Daten:</p>
@@ -281,6 +291,13 @@
         <h3>4.1 Serverstandort &amp; Sicherheit</h3>
         <p>Die Daten werden auf sicheren Servern in der Europäischen Union (Frankfurt, Deutschland) bei Supabase Inc. gespeichert. Der Zugriff erfolgt ausschließlich über verschlüsselte Verbindungen (HTTPS/TLS).</p>
         <p>Gesundheitsdaten werden ausschließlich innerhalb der EU gespeichert.</p>
+        <p><strong>Technische und organisatorische Maßnahmen (TOM):</strong></p>
+        <ul>
+            <li><strong>Verschlüsselung:</strong> Alle Datenübertragungen erfolgen über TLS 1.3. Passwörter werden nur als bcrypt-Hash gespeichert.</li>
+            <li><strong>Zugriffskontrolle:</strong> Der Serverzugriff ist auf autorisierte Administratoren beschränkt und erfolgt über Schlüsselverwaltung und Multi-Faktor-Authentifizierung.</li>
+            <li><strong>Datentrennung:</strong> Gesundheitsdaten werden getrennt von anderen Daten gespeichert und unterliegen strengeren Zugriffsregeln (Row-Level-Security in der Datenbank).</li>
+            <li><strong>Regelmäßige Bereinigung:</strong> Automatisierte Löschroutinen entfernen Herzfrequenz-Einzeldaten nach 36 Monaten und Einwilligungsaufzeichnungen nach 3 Jahren.</li>
+        </ul>
 
         <h3>4.2 Hauptauftragsverarbeiter</h3>
         <table>
@@ -292,7 +309,7 @@
         <p><strong>Auftragsverarbeitungsvertrag (DPA):</strong> Abgeschlossen (Version Juni 2026)</p>
 
         <h3>4.3 Subunternehmer von Supabase</h3>
-        <p>Supabase nutzt folgende Subunternehmer, die personenbezogene Daten von Häschenlauf-Nutzern verarbeiten können:</p>
+        <p>Supabase nutzt folgende Subunternehmer, die personenbezogenen Daten von Häschenlauf-Nutzern verarbeiten können:</p>
         <table>
             <thead><tr><th>Subunternehmer</th><th>Verarbeitungszweck</th><th>Standort</th><th>Datenschutzgarantie</th></tr></thead>
             <tbody>
@@ -349,17 +366,20 @@
         <p>Häschenlauf trifft keine automatisierten Entscheidungen mit rechtlicher Wirkung (z. B. Bonitätsprüfung, Kündigungen).</p>
         <p>Die Gamification (Erfolge, Level) dient ausschließlich der Motivation und dem Spielspaß und hat keine rechtliche oder erhebliche beeinträchtigende Wirkung.</p>
 
-        <h2>8. Minderjährigenschutz</h2>
+        <h2>8. Datenpannen-Benachrichtigung</h2>
+        <p>Sollte es zu einer Datenpanne kommen, die voraussichtlich ein hohes Risiko für deine Rechte und Freiheiten darstellt, werden wir dich unverzüglich per E-Mail über Art und Umfang der Panne sowie die ergriffenen Gegenmaßnahmen informieren (Art. 34 DSGVO).</p>
+
+        <h2>9. Minderjährigenschutz</h2>
         <p>Die App ist erst ab 18 Jahren freigegeben.</p>
         <p>Beim Onboarding wird dein Alter überprüft (Eingabe des Geburtsdatums). Dabei wird ausschließlich das boolesche Ergebnis (mindestens 18 Jahre oder nicht) gespeichert – dein Geburtsdatum wird nicht an unsere Server übermittelt oder dauerhaft gespeichert.</p>
         <p>Personen unter 18 Jahren dürfen die App nicht nutzen.</p>
-        <p><strong>Rechtsgrundlage:</strong> Art. 8 DSGVO</p>
+        <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Einhaltung von Jugendschutzvorgaben)</p>
 
-        <h2>9. Änderungen dieser Datenschutzerklärung</h2>
+        <h2>10. Änderungen dieser Datenschutzerklärung</h2>
         <p>Sollte sich diese Datenschutzerklärung ändern, wirst du in der App darüber informiert und musst der neuen Fassung zustimmen (Re-Consent).</p>
         <p>Die aktuelle Version ist immer unter <a href="https://haeschenlauf.de/privacy">haeschenlauf.de/privacy</a> abrufbar.</p>
 
-        <h2>10. Beschwerderecht bei der Aufsichtsbehörde</h2>
+        <h2>11. Beschwerderecht bei der Aufsichtsbehörde</h2>
         <p>Du hast das Recht, dich bei einer Aufsichtsbehörde zu beschweren, wenn du der Ansicht bist, dass die Verarbeitung deiner Daten gegen die DSGVO verstößt.</p>
         <p><strong>Zuständige Aufsichtsbehörde:</strong><br>
         Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen<br>
@@ -367,7 +387,7 @@
         40102 Düsseldorf<br>
         E-Mail: <a href="mailto:poststelle@ldi.nrw.de">poststelle@ldi.nrw.de</a></p>
 
-        <h2>11. Kontakt</h2>
+        <h2>12. Kontakt</h2>
         <p>Bei Fragen, Beschwerden oder zur Ausübung deiner Rechte:</p>
         <p>
             Felix Bischoff<br>
